@@ -4,65 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0a5e0de-2770-41a1-b309-78a43894af95" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/axolotl/RandomWordsTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/axolotl/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/discord.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/i-sweet-axolotl.iml" beforeDir="false" />
+    <list default="true" id="ade44d37-ec3a-4ab1-84da-7cb5c48b1cac" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2023_2024/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PrintName.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/eight_grade/Difference.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/eight_grade/Egg.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/eight_grade/Egg2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/eight_grade/Mantra.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/eight_grade/MantraButAnnoying.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/eight_grade/Meta.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/eight_grade/MuchBetter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/eight_grade/Stewie2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/eight_grade/WellFormed.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/eight_grade/spikey.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/eight_grade/stewie.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/.idea/discord.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/2023_2024/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/PrintName.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/eight_grade/Difference.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/eight_grade/Egg.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/eight_grade/Egg2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/eight_grade/Mantra.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/eight_grade/MantraButAnnoying$AbstractMantra.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/eight_grade/MantraButAnnoying$DefaultMantraFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/eight_grade/MantraButAnnoying$Mantra.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/eight_grade/MantraButAnnoying$MantraFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/eight_grade/MantraButAnnoying.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/eight_grade/Meta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/eight_grade/MuchBetter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/eight_grade/Stewie2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/eight_grade/WellFormed.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/eight_grade/spikey.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/eight_grade/stewie.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/.idea/discord.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/axolotl/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/axolotl/PrintName.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/axolotl/RandomWordsTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/axolotl/Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/axolotl/homework/Difference.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/axolotl/homework/Egg.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/axolotl/homework/Egg2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/axolotl/homework/Mantra.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/axolotl/homework/MantraButAnnoying.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/axolotl/homework/Meta.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/axolotl/homework/MuchBetter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/axolotl/homework/Stewie2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/axolotl/homework/WellFormed.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/axolotl/homework/spikey.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/axolotl/homework/stewie.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,8 +38,32 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Spicy-Axolotl&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="1efef33a-06e3-48fe-bb30-fb1929b23b6f" />
+        <option name="url" value="https://github.com/Spicy-Axolotl/CompSci.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2VLfomrDTAZvZlTZTjACOSEjVmq" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -85,29 +71,23 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.new.ui&quot;
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;
   }
 }</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a0a5e0de-2770-41a1-b309-78a43894af95" name="Changes" comment="" />
-      <created>1696000542107</created>
+      <changelist id="ade44d37-ec3a-4ab1-84da-7cb5c48b1cac" name="Changes" comment="" />
+      <created>1694620458330</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1696000542107</updated>
+      <updated>1694620458330</updated>
     </task>
     <servers />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/dev/axolotl/Main.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
 </project>
