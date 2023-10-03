@@ -5,26 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ade44d37-ec3a-4ab1-84da-7cb5c48b1cac" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/axolotl/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/axolotl/PrintName.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/axolotl/RandomWordsTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/axolotl/Test.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/axolotl/homework/Difference.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/axolotl/homework/Egg.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/axolotl/homework/Egg2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/axolotl/homework/Mantra.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/axolotl/homework/MantraButAnnoying.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/axolotl/homework/Meta.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/axolotl/homework/MuchBetter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/axolotl/homework/Stewie2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/axolotl/homework/WellFormed.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/axolotl/homework/spikey.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/axolotl/homework/stewie.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/axolotl/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/axolotl/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/Main.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
