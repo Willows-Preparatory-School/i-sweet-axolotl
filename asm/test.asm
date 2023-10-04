@@ -1,5 +1,5 @@
 ; ----------------------------------------------------------------------------
-; test.s
+; test.asm
 ;
 ; This is a Win32 console program that writes "Hello, World" on one line and
 ; then exits.  It needs to be linked with a C library.
