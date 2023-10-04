@@ -25,6 +25,6 @@ _main:
     nop ; Waste a few cycles doing nothing.
     jmp wait_program ; Jump back to nop instruction
 message:
-    db  'Hello, World', 10, 0
+    db  'Hello, World!', 10, 0
 message_two:
-    db  'Hello :3.', 10, 0
+    db  'Hello :3', 10, 0
