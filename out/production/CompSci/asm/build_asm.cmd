@@ -1,4 +1,4 @@
-tools\nasm.exe -fwin32 test.s
+tools\nasm.exe -fwin32 test.asm
 gcc test.obj
 a
 pause

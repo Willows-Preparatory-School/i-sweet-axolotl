@@ -1,4 +1,4 @@
-public class main {
+public class problem_2_average {
     public static void main(String[] args)
     {
         int bio = 11;
