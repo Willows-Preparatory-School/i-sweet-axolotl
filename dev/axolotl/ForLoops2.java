@@ -15,8 +15,8 @@ public class ForLoops2 {
         }
         System.out.println(sum);
         // JOptionPane.showMessageDialog(null, "This is a message dialog.");
-        // JOptionPane.showMessageDialog(null, ":3");
-        Icon icon_3;
-        new ColonThreeDialog(":3", icon_3);
+        JOptionPane.showMessageDialog(null, ":3");
+        //Icon icon_3 = null;
+        //new ColonThreeDialog(":3", null);
     }
 }
