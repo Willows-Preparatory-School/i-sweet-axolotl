@@ -20,10 +20,13 @@ public class DialogUI {
         frame.setVisible(true);
     }
 
-    public void pushDialog(int[][] board) {
+    public void pushDialog(int[][] board)
+    {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[i].length; j++) {
+        for (int i = 0; i < board.length; i++)
+        {
+            for (int j = 0; j < board[i].length; j++)
+            {
                 sb.append(board[i][j]).append(" ");
             }
             sb.append("\n");
