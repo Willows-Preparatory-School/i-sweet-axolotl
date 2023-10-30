@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ade44d37-ec3a-4ab1-84da-7cb5c48b1cac" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/axolotl/gameoflife/DialogUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/axolotl/gameoflife/DialogUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/gameoflife/DialogUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/gameoflife/DialogUI.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +58,8 @@
     "last_opened_file_path": "C:/folders/java/i-sweet-axolotl/jSerialComm-2.10.3.jar",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.new.ui"
   },
   "keyToStringList": {
     "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
