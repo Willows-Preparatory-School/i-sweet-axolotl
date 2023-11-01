@@ -2,8 +2,6 @@ public class main {
     public static void main(String[] args)
     {
         System.out.print("Hello, World!\n");
-        int[] array = {1, 1, 1 ,1 ,1};
-        System.out.println(fast_power(10,12));
     }
 
     public static long fast_power(long base, long power)
