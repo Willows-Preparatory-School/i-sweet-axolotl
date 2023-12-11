@@ -6,41 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ade44d37-ec3a-4ab1-84da-7cb5c48b1cac" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/axolotl/Test2.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/axolotl/Test2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/axolotl/homwork/MantraButAnnoying.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/axolotl/homwork/MantraButAnnoying.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/ColonThreeDialog$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/ColonThreeDialog$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/ColonThreeDialog.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/ColonThreeDialog.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/EscapeTheVoid.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/EscapeTheVoid.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/ForLoops.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/ForLoops.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/ForLoops2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/ForLoops2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/PrintName.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/PrintName.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/RandomWordsTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/RandomWordsTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/Test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/Test2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/Test2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/chapter3/chapter3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/chapter3/chapter3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/gameoflife/DialogUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/gameoflife/DialogUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/gameoflife/gameoflife.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/gameoflife/gameoflife.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/homwork/Difference.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/homwork/Difference.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/homwork/Egg.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/homwork/Egg.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/homwork/Egg2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/homwork/Egg2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/homwork/Mantra.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/homwork/Mantra.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/homwork/MantraButAnnoying$AbstractMantra.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/homwork/MantraButAnnoying$AbstractMantra.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/homwork/MantraButAnnoying$DefaultMantraFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/homwork/MantraButAnnoying$DefaultMantraFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/homwork/MantraButAnnoying$Mantra.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/homwork/MantraButAnnoying$Mantra.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/homwork/MantraButAnnoying$MantraFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/homwork/MantraButAnnoying$MantraFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/homwork/MantraButAnnoying.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/homwork/MantraButAnnoying.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/homwork/Meta.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/homwork/Meta.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/homwork/MuchBetter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/homwork/MuchBetter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/homwork/Stewie2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/homwork/Stewie2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/homwork/WellFormed.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/homwork/WellFormed.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/homwork/spikey.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/homwork/spikey.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/homwork/stewie.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/homwork/stewie.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/joyStick.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/joyStick.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/pokemon_ev.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CompSci/dev/axolotl/pokemon_ev.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CompSci/main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CompSci/problem_2_average.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CompSci/problem_2_average.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/axolotl/practice/Classes.java" beforeDir="false" afterPath="$PROJECT_DIR$/dev/axolotl/practice/Classes.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

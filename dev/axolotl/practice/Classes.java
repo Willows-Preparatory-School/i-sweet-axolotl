@@ -16,6 +16,7 @@ public class Classes {
     }
     public class forecast
     {
+        String area_name;
         double temperature;
         double visibility;
         double wind_speed;
