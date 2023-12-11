@@ -6,7 +6,7 @@ public class Test2 {
         System.out.println("lol");
     }
 
-    public static void main()
+    public static void main(String arg[])
     {
         hahahahaah();
     }

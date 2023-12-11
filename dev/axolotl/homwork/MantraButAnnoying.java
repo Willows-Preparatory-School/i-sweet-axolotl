@@ -16,10 +16,13 @@ public class MantraButAnnoying {
     }
 
     public static class Mantra extends AbstractMantra {
-        private static final String MANTRA = "There's one thing every coder must understand:\n" +
-                "The System.out.println command.\n\n";
+        private static final String MANTRA = """
+                There's one thing every coder must understand:
+                The System.out.println command.
 
-        private Consumer<String> printer = System.out::print;
+                """;
+
+        private final Consumer<String> printer = System.out::print;
 
         @Override
         protected void printMantra() {
