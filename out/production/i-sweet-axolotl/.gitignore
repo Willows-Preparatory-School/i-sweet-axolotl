@@ -1,7 +1,3 @@
-# custom things
-# we dont want this zip
-lwjgl-release-3.3.3-custom.zip
-
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
