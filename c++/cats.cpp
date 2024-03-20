@@ -22,3 +22,8 @@ class DigitalCat : Cat
 {
 
 };
+
+class MurderousDigitalCat : DigitalCat
+{
+    
+};
