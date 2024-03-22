@@ -45,9 +45,9 @@ public class Main
     };
 
     private BGFXVertexLayout layout;
-    private ByteBuffer vertices;
+    private static ByteBuffer vertices;
     private short vbh;
-    private ByteBuffer indices;
+    private static ByteBuffer indices;
     private short ibh;
     private short program;
 
@@ -150,20 +150,19 @@ public class Main
 
         // Random cube stuff that i forgot how it works, send help
         // Create a vertex array object
-        int vao = GL11.glGenVertexArrays();
-        GL11.glBindVertexArray(vao);
-        // Create a vertex buffer object
+        int vao = GL30.glGenVertexArrays();
+        GL30.glBindVertexArray(vao);
 
-        int vbo = GL11.glGenBuffers();
-        GL11.glBindBuffer(GL11.GL_ARRAY_BUFFER, vbo);
-        GL11.glBufferData(GL11.GL_ARRAY_BUFFER, vertices, GL11.GL_STATIC_DRAW);
+        int vbo = GL30.glGenBuffers();
+        GL30.glBindBuffer(GL30.GL_ARRAY_BUFFER, vbo);
+        GL30.glBufferData(GL30.GL_ARRAY_BUFFER, vertices, GL30.GL_STATIC_DRAW);
         // Create an element array buffer object
-        int ebo = GL11.glGenBuffers();
-        GL11.glBindBuffer(GL11.GL_ELEMENT_ARRAY_BUFFER, ebo);
-        GL11.glBufferData(GL11.GL_ELEMENT_ARRAY_BUFFER, indices, GL11.GL_STATIC_DRAW);
+        int ebo = GL30.glGenBuffers();
+        GL30.glBindBuffer(GL30.GL_ELEMENT_ARRAY_BUFFER, ebo);
+        GL30.glBufferData(GL30.GL_ELEMENT_ARRAY_BUFFER, indices, GL30.GL_STATIC_DRAW);
         // Specify the vertex attribute layout
-        GL11.glVertexAttribPointer(0, 3, GL11.GL_FLOAT, false, 0, 0);
-        GL11.glEnableVertexAttribArray(0);
+        GL30.glVertexAttribPointer(0, 3, GL11.GL_FLOAT, false, 0, 0);
+        GL30.glEnableVertexAttribArray(0);
 
         // Run the rendering loop until the user has attempted to close
         // the window or has pressed the ESCAPE key.
@@ -174,7 +173,7 @@ public class Main
             // Rotate the cube
             GL11.glRotatef(1.0f, 0.0f, 1.0f, 0.0f);
             // Draw the cube
-            GL11.glDrawElements(GL11.GL_TRIANGLES, indices.length, GL11.GL_UNSIGNED_INT, 0);
+            GL11.glDrawElements(GL11.GL_TRIANGLES, indices.limit(), GL11.GL_UNSIGNED_INT, 0);
             //End of render code.
 
             glfwSwapBuffers(window); // swap the color buffers
