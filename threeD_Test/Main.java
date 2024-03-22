@@ -126,7 +126,7 @@ public class Main
         GL30.glBufferData(GL30.GL_ARRAY_BUFFER, vertices, GL30.GL_STATIC_DRAW);
 
         // Set the vertex attribute pointer
-        GL30.glVertexAttribPointer(0, 3, GL_FLOAT, false, 0, 0);
+        GL30.glVertexAttribPointer(0, 3, GL_FLOAT, false, 12, 0); // Updated to pass in the position of each vertex
         GL30.glEnableVertexAttribArray(0);
 
         // Create a shader program
