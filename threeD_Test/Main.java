@@ -125,6 +125,8 @@ public class Main
         glfwMakeContextCurrent(window);
         // Enable v-sync
         glfwSwapInterval(1);
+        // depth test
+        glEnable(GL_DEPTH_TEST);
 
         // Make the window visible
         glfwShowWindow(window);
@@ -149,21 +151,6 @@ public class Main
         System.out.println("Refresh rate: " + videomode_render.refreshRate() + "hz");
 
         // Random cube stuff that i forgot how it works, send help
-        // Create a vertex array object
-        int vao = GL30.glGenVertexArrays();
-        GL30.glBindVertexArray(vao);
-
-        int vbo = GL30.glGenBuffers();
-        GL30.glBindBuffer(GL30.GL_ARRAY_BUFFER, vbo);
-        GL30.glBufferData(GL30.GL_ARRAY_BUFFER, vertices, GL30.GL_STATIC_DRAW);
-        // Create an element array buffer object
-        int ebo = GL30.glGenBuffers();
-        GL30.glBindBuffer(GL30.GL_ELEMENT_ARRAY_BUFFER, ebo);
-        GL30.glBufferData(GL30.GL_ELEMENT_ARRAY_BUFFER, indices, GL30.GL_STATIC_DRAW);
-        // Specify the vertex attribute layout
-        GL30.glVertexAttribPointer(0, 3, GL11.GL_FLOAT, false, 0, 0);
-        GL30.glEnableVertexAttribArray(0);
-
         // Run the rendering loop until the user has attempted to close
         // the window or has pressed the ESCAPE key.
         while ( !glfwWindowShouldClose(window) ) {
@@ -171,9 +158,42 @@ public class Main
 
             // Render everything in under this line
             // Rotate the cube
-            GL11.glRotatef(1.0f, 0.0f, 1.0f, 0.0f);
-            // Draw the cube
-            GL11.glDrawElements(GL11.GL_TRIANGLES, indices.limit(), GL11.GL_UNSIGNED_INT, 0);
+            glLoadIdentity();
+            glTranslated(x, y, z);
+            glRotatef(pitch, 0.1f, 0.0f, 0.0f);
+
+            glBegin(GL_QUADS);
+            glColor3f(0,1,1);
+            glVertex3f(-wid/2f, hei/2f, len/2f);
+            glVertex3f(-wid/2f, hei/2f,-len/2f);
+            glVertex3f( wid/2f, hei/2f,-len/2f);
+            glVertex3f( wid/2f, hei/2f, len/2f);
+            glColor3f(1,0,0);
+            glVertex3f(-wid/2f,-hei/2f,-len/2f);
+            glVertex3f( wid/2f,-hei/2f,-len/2f);
+            glVertex3f( wid/2f, hei/2f,-len/2f);
+            glVertex3f(-wid/2f, hei/2f,-len/2f);
+            glColor3f(0,1,0);
+            glVertex3f(-wid/2f,-hei/2f,-len/2f);
+            glVertex3f(-wid/2f,-hei/2f, len/2f);
+            glVertex3f(-wid/2f, hei/2f, len/2f);
+            glVertex3f(-wid/2f, hei/2f,-len/2f);
+            glColor3f(0,0,1);
+            glVertex3f( wid/2f,-hei/2f, len/2f);
+            glVertex3f( wid/2f,-hei/2f,-len/2f);
+            glVertex3f( wid/2f, hei/2f,-len/2f);
+            glVertex3f( wid/2f, hei/2f, len/2f);
+            glColor3f(1,1,0);
+            glVertex3f(-wid/2f,-hei/2f,-len/2f);
+            glVertex3f( wid/2f,-hei/2f,-len/2f);
+            glVertex3f( wid/2f,-hei/2f, len/2f);
+            glVertex3f(-wid/2f,-hei/2f, len/2f);
+            glColor3f(1,0,1);
+            glVertex3f(-wid/2f,-hei/2f, len/2f);
+            glVertex3f( wid/2f,-hei/2f, len/2f);
+            glVertex3f( wid/2f, hei/2f, len/2f);
+            glVertex3f(-wid/2f, hei/2f, len/2f);
+            glEnd();
             //End of render code.
 
             glfwSwapBuffers(window); // swap the color buffers
