@@ -1,6 +1,14 @@
 package threeD_Test;
 
+import org.joml.Matrix4f;
+import org.lwjgl.glfw.GLFW;
 import org.lwjgl.opengl.GL43;
+import org.lwjgl.system.MemoryStack;
+
+import static org.lwjgl.opengl.ARBFragmentShader.GL_FRAGMENT_SHADER_ARB;
+import static org.lwjgl.opengl.ARBShaderObjects.*;
+import static org.lwjgl.opengl.ARBVertexShader.GL_VERTEX_SHADER_ARB;
+import static org.lwjgl.system.MemoryStack.stackPush;
 
 public class Test1Renderer
 {
@@ -8,53 +16,103 @@ public class Test1Renderer
     static float[] vertices;
     static int width = 800, height = 600;
 
-    public static void renderInit()
+    static long lastTime;
+
+    public static void renderInit(long window)
     {
-        // Initialize some state
-        GL43.glClearColor(0.3f, 0.45f, 0.72f, 1.0f);
-        GL43.glEnable(GL43.GL_CULL_FACE);
-        GL43.glPolygonMode(GL43.GL_FRONT_AND_BACK, GL43.GL_LINE);
-        GL43.glLoadIdentity();
-
-        int columns = 100, rows = 100;
-        GL43.glOrtho(0, columns - 1, rows - 1, 0, -1, 1);
-
-        // Build vertices
-        vertices = new float[columns * rows * 2];
-        int i = 0;
-        for (int y = 0; y < rows; y++) {
-            for (int x = 0; x < columns; x++) {
-                vertices[i++] = x;
-                vertices[i++] = y;
-            }
-        }
-
-        // Build indices
-        i = 0;
-        indices = new int[(rows - 1) * (columns + 1) * 2];
-        for (int y = 0; y < rows - 1; y++) {
-            for (int x = 0; x < columns; x++) {
-                indices[i++] = y * columns + x;
-                indices[i++] = (y + 1) * columns + x;
-            }
-            if (y < height - 1) {
-                indices[i++] = (y + 2) * columns - 1;
-                indices[i++] = (y + 1) * columns;
-            }
-        }
-
-        // Upload to buffer objects
-        int vbo = GL43.glGenBuffers(), ibo = GL43.glGenBuffers();
-        GL43.glBindBuffer(GL43.GL_ARRAY_BUFFER, vbo);
-        GL43.glBufferData(GL43.GL_ARRAY_BUFFER, vertices, GL43.GL_STATIC_DRAW);
-        GL43.glEnableClientState(GL43.GL_VERTEX_ARRAY);
-        GL43.glBindBuffer(GL43.GL_ELEMENT_ARRAY_BUFFER, ibo);
-        GL43.glBufferData(GL43.GL_ELEMENT_ARRAY_BUFFER, indices, GL43.GL_STATIC_DRAW);
-        GL43.glVertexPointer(2, GL43.GL_FLOAT, 0, 0L);
+        GL43.glClearColor(0.7f, 0.8f, 0.9f, 1);
+        GL43.glEnable(GL43.GL_BLEND);
+        GL43.glBlendFunc(GL43.GL_SRC_ALPHA, GL43.GL_ONE_MINUS_SRC_ALPHA);
+        createGridProgram();
+        createGrid();
+        GLFW.glfwShowWindow(window);
+        lastTime = System.nanoTime();
     }
 
-    public static void render()
+    public static void render(int gridProgram, int gridProgramMatLocation, int grid)
     {
-        GL43.glDrawElements(GL43.GL_TRIANGLE_STRIP, indices.length, GL43.GL_UNSIGNED_INT, 0L);
+        GL43.glViewport(0, 0, width, height);
+        GL43.glClear(GL43.GL_DEPTH_BUFFER_BIT | GL43.GL_COLOR_BUFFER_BIT);
+        glUseProgramObjectARB(gridProgram);
+        long thisTime = System.nanoTime();
+        float dt = (thisTime - lastTime) * 1E-9f;
+        lastTime = thisTime;
+        try (MemoryStack stack = stackPush())
+        {
+            glUniformMatrix4fvARB(gridProgramMatLocation, false, updateMatrices(dt).get(stack.mallocFloat(16)));
+        }
+        GL43.glCallList(grid);
+    }
+
+    private static Matrix4f updateMatrices(float dt) {
+        float rotateZ = 0f;
+        float speed = 2f;
+        if (keyDown[GLFW.GLFW_KEY_LEFT_SHIFT])
+            speed = 10f;
+        if (keyDown[GLFW.GLFW_KEY_Q])
+            rotateZ -= 1f;
+        if (keyDown[GLFW.GLFW_KEY_E])
+            rotateZ += 1f;
+        if (keyDown[GLFW.GLFW_KEY_W])
+            position.add(orientation.positiveZ(new Vector3f()).mul(dt * speed));
+        orientation.rotateLocalZ(rotateZ * dt * speed);
+        return mat.setPerspective((float) Math.toRadians(60), (float) width / height, 0.1f, 1000.0f)
+                .rotate(orientation)
+                .translate(position);
+    }
+
+    private static void createGridProgram() {
+        gridProgram = glCreateProgramObjectARB();
+        int vs = glCreateShaderObjectARB(GL_VERTEX_SHADER_ARB);
+        glShaderSourceARB(vs,
+                "#version 110\n" +
+                        "uniform mat4 viewProjMatrix;\n" +
+                        "varying vec4 wp;\n" +
+                        "void main(void) {\n" +
+                        "  wp = gl_Vertex;\n" +
+                        "  gl_Position = viewProjMatrix * gl_Vertex;\n" +
+                        "}");
+        glCompileShaderARB(vs);
+        glAttachObjectARB(gridProgram, vs);
+        int fs = glCreateShaderObjectARB(GL_FRAGMENT_SHADER_ARB);
+        glShaderSourceARB(fs,
+                "#version 110\n" +
+                        "varying vec4 wp;\n" +
+                        "void main(void) {\n" +
+                        "  vec2 p = wp.xz / wp.w;\n" +
+                        "  vec2 g = 0.5 * abs(fract(p) - 0.5) / fwidth(p);\n" +
+                        "  float a = min(min(g.x, g.y), 1.0);\n" +
+                        "  gl_FragColor = vec4(vec3(a), 1.0 - a);\n" +
+                        "}");
+        glCompileShaderARB(fs);
+        glAttachObjectARB(gridProgram, fs);
+        glLinkProgramARB(gridProgram);
+        gridProgramMatLocation = glGetUniformLocationARB(gridProgram, "viewProjMatrix");
+    }
+
+    private static void createGrid() {
+        grid = GL43.glGenLists(1);
+        GL43.glNewList(grid, GL43.GL_COMPILE);
+        GL43.glBegin(GL43.GL_TRIANGLES);
+        GL43.glVertex4f(-1, 0, -1, 0);
+        GL43.glVertex4f(-1, 0,  1, 0);
+        GL43.glVertex4f( 0, 0,  0, 1);
+        GL43.glVertex4f(-1, 0,  1, 0);
+        GL43.glVertex4f( 1, 0,  1, 0);
+        GL43.glVertex4f( 0, 0,  0, 1);
+        GL43.glVertex4f( 1, 0,  1, 0);
+        GL43.glVertex4f( 1, 0, -1, 0);
+        GL43.glVertex4f( 0, 0,  0, 1);
+        GL43.glVertex4f( 1, 0, -1, 0);
+        GL43.glVertex4f(-1, 0, -1, 0);
+        GL43.glVertex4f( 0, 0,  0, 1);
+        GL43.glEnd();
+        GL43.glEndList();
+    }
+
+    // This is a very bad way of doing this, and yet i dont care.
+    public static void updateVariables()
+    {
+
     }
 }
