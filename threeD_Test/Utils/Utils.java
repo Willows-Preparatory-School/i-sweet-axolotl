@@ -1,4 +1,4 @@
-package threeD_Test;
+package threeD_Test.Utils;
 
 import org.joml.Vector3f;
 import org.lwjgl.BufferUtils;
@@ -9,7 +9,7 @@ import java.nio.ByteBuffer;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 
-import static threeD_Test.IOUtils.*;
+import static threeD_Test.Utils.IOUtils.*;
 import static org.lwjgl.opengl.GL20.*;
 import static org.lwjgl.system.MemoryUtil.*;
 

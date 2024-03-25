@@ -1,7 +1,7 @@
-package threeD_Test;
+package threeD_Test.Utils;
 
 import static org.lwjgl.BufferUtils.createByteBuffer;
-import static threeD_Test.IOUtils.*;
+import static threeD_Test.Utils.IOUtils.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.util.shaderc.Shaderc.*;
 import static org.lwjgl.vulkan.EXTDebugReport.VK_ERROR_VALIDATION_FAILED_EXT;

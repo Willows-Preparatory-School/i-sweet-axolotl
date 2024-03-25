@@ -1,4 +1,4 @@
-package threeD_Test;
+package threeD_Test.Utils;
 
 import java.io.*;
 import java.net.URL;
