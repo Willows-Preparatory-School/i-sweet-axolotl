@@ -1,6 +1,8 @@
 package threeD_Test;
 
 import org.joml.Matrix4f;
+import org.joml.Quaternionf;
+import org.joml.Vector3f;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.opengl.GL43;
 import org.lwjgl.system.MemoryStack;
@@ -17,6 +19,13 @@ public class Test1Renderer
     static int width = 800, height = 600;
 
     static long lastTime;
+    static int grid;
+    static int gridProgram;
+    static int gridProgramMatLocation;
+    static Quaternionf orientation = new Quaternionf();
+    static Vector3f position = new Vector3f(0, 2, 5).negate();
+    static Matrix4f mat = new Matrix4f();
+    static boolean[] keyDown = new boolean[GLFW.GLFW_KEY_LAST + 1];
 
     public static void renderInit(long window)
     {
@@ -111,8 +120,24 @@ public class Test1Renderer
     }
 
     // This is a very bad way of doing this, and yet i dont care.
-    public static void updateVariables()
-    {
+    /*
+    private final Quaternionf orientation = new Quaternionf();
+    private final Vector3f position = new Vector3f(0, 2, 5).negate();
+    private boolean[] keyDown = new boolean[GLFW.GLFW_KEY_LAST + 1];
+    private static int grid;
+    private static int gridProgram;
+    private static int gridProgramMatLocation;
+    private final Matrix4f mat = new Matrix4f();
+    */
 
+    public static void updateVariables(Quaternionf p_orientation, Vector3f p_position, boolean[] p_keyDown, int p_grid, int p_gridProgram, int p_gridProgramMatLocation, Matrix4f p_mat)
+    {
+        orientation = p_orientation;
+        position = p_position;
+        keyDown = p_keyDown;
+        grid = p_grid;
+        gridProgram = p_gridProgram;
+        gridProgramMatLocation = p_gridProgramMatLocation;
+        mat = p_mat;
     }
 }

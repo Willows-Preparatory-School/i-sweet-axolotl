@@ -125,6 +125,7 @@ public class Test1 {
 
             // -----------RENDER HERE--------
             Test1Renderer.render(gridProgram, gridProgramMatLocation, grid);
+            Test1Renderer.updateVariables(orientation, position, keyDown, grid, gridProgram, gridProgramMatLocation, mat);
             // ------END OF RENDER CODE------
 
             // Swap buffers
