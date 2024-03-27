@@ -5,16 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3c546669-189f-47dc-8e89-bd3f0c82f4c2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/threeD_Test/GreedyMeshingNoAo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/threeD_Test/MagicaVoxelLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/threeD_Test/VKUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/threeD_Test/VoxelChunks.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/i-sweet-axolotl/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/Test1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/Test1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/Test1Renderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/Test1Renderer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/threeD_Test/Test1.java" beforeDir="false" afterPath="$PROJECT_DIR$/threeD_Test/Test1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/threeD_Test/Test1Renderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/threeD_Test/Test1Renderer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

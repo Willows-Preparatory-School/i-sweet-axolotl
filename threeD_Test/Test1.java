@@ -14,11 +14,11 @@ import static org.lwjgl.glfw.GLFW.nglfwGetFramebufferSize;
 import static org.lwjgl.system.MemoryUtil.memAddress;
 
 public class Test1 {
-    private long window;
+    private static long window;
     private int width = 1200;
     private int height = 800;
 
-    private void run() {
+    private static void run() {
         System.out.println("Hello!");
         // Initialize GLFW
         if (!GLFW.glfwInit())
@@ -78,7 +78,7 @@ public class Test1 {
             GL43.glClear(GL43.GL_COLOR_BUFFER_BIT);
 
             // -----------RENDER HERE--------
-            Test1Renderer.render();
+            //Test1Renderer.render();
             // ------END OF RENDER CODE------
 
             // Swap buffers
@@ -97,7 +97,7 @@ public class Test1 {
 
     public static void main(String[] args)
     {
-        new Test1().run();
+        run();
     }
 }
 

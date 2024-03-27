@@ -6,44 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3c546669-189f-47dc-8e89-bd3f0c82f4c2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/i-sweet-axolotl/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/GreedyMeshingNoAo$Face.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/GreedyMeshingNoAo$FaceConsumer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/GreedyMeshingNoAo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/IOUtils.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/MagicaVoxelLoader$Callback.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/MagicaVoxelLoader$Chunk.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/MagicaVoxelLoader$Material$Type.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/MagicaVoxelLoader$Material.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/MagicaVoxelLoader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/Utils.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/VKUtil$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/VKUtil$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/VKUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/VoxelChunks$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/VoxelChunks$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/VoxelChunks$AccelerationStructure.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/VoxelChunks$AccelerationStructure.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/VoxelChunks$AllocationAndBuffer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/VoxelChunks$AllocationAndBuffer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/VoxelChunks$Chunk.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/VoxelChunks$Chunk.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/VoxelChunks$ColorFormatAndSpace.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/VoxelChunks$ColorFormatAndSpace.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/VoxelChunks$DebugCallbackAndHandle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/VoxelChunks$DebugCallbackAndHandle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/VoxelChunks$DescriptorSets.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/VoxelChunks$DescriptorSets.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/VoxelChunks$DeviceAndQueueFamilies.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/VoxelChunks$DeviceAndQueueFamilies.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/VoxelChunks$QueueFamilies.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/VoxelChunks$QueueFamilies.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/VoxelChunks$QueueFamily.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/VoxelChunks$QueueFamily.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/VoxelChunks$RayTracingPipeline.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/VoxelChunks$RayTracingPipeline.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/VoxelChunks$Rc.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/VoxelChunks$Rc.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/VoxelChunks$Swapchain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/VoxelChunks$Swapchain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/VoxelChunks$VoxelField.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/VoxelChunks$VoxelField.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/VoxelChunks$WindowAndCallbacks.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/VoxelChunks$WindowAndCallbacks.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/VoxelChunks.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/VoxelChunks.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/threeD_Test/GreedyMeshingNoAo.java" beforeDir="false" afterPath="$PROJECT_DIR$/threeD_Test/Utils/GreedyMeshingNoAo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/threeD_Test/IOUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/threeD_Test/Utils/IOUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/threeD_Test/MagicaVoxelLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/threeD_Test/Utils/MagicaVoxelLoader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/threeD_Test/Test1.java" beforeDir="false" afterPath="$PROJECT_DIR$/threeD_Test/Test1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/threeD_Test/Test1Renderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/threeD_Test/Test1Renderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/threeD_Test/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/threeD_Test/Utils/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/threeD_Test/VKUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/threeD_Test/Utils/VKUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/threeD_Test/VoxelChunks.java" beforeDir="false" afterPath="$PROJECT_DIR$/threeD_Test/VoxelChunks.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
