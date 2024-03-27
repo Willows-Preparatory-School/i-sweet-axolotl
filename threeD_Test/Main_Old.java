@@ -1,7 +1,6 @@
 package threeD_Test;
 
 import org.lwjgl.*;
-import org.lwjgl.bgfx.BGFXVertexLayout;
 import org.lwjgl.glfw.*;
 import org.lwjgl.opengl.*;
 import org.lwjgl.system.*;
@@ -14,9 +13,8 @@ import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import org.lwjgl.opengl.*;
 
-public class Main
+public class Main_Old
 {
 
     // The window handle
