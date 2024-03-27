@@ -68,6 +68,10 @@ public class Test1 {
         glfwSetKeyCallback(window, (window, key, scancode, action, mods) -> {
             if ( key == GLFW_KEY_ESCAPE && action == GLFW_RELEASE )
                 glfwSetWindowShouldClose(window, true); // We will detect this in the rendering loop
+            if(key == GLFW_KEY_F && action == GLFW_RELEASE)
+                glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+            if(key == GLFW_KEY_G && action == GLFW_RELEASE)
+                glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
         });
 
         // Get the thread stack and push a new frame

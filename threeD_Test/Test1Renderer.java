@@ -30,9 +30,10 @@ public class Test1Renderer
     {
         window = r_window;
         vertices = new float[]{
-                -0.5f, -0.5f, 0.0f,
-                0.5f, -0.5f, 0.0f,
-                0.0f, 0.5f, 0.0f
+                // positions         // colors
+                0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,   // bottom right
+                -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,   // bottom left
+                0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f    // top
         };
         VBO = GL43.glGenBuffers();
         GL43.glBindBuffer(GL43.GL_ARRAY_BUFFER, VBO);
@@ -41,11 +42,16 @@ public class Test1Renderer
         System.out.println("Compiling vertex shader...");
         String vertexShaderSource =
                 "#version 330 core\n" +
-                        "layout (location = 0) in vec3 aPos;\n" +
-                        "void main()\n" +
-                        "{\n" +
-                            "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n" +
-                        "}\0";
+                "layout (location = 0) in vec3 aPos;   // the position variable has attribute position 0\n" +
+                "layout (location = 1) in vec3 aColor; // the color variable has attribute position 1\n" +
+                "  \n" +
+                "out vec3 ourColor; // output a color to the fragment shader\n" +
+                "\n" +
+                "void main()\n" +
+                "{\n" +
+                "    gl_Position = vec4(aPos, 1.0);\n" +
+                "    ourColor = aColor; // set ourColor to the input color we got from the vertex data\n" +
+                "}  ";
         int vertexShader = GL43.glCreateShader(GL43.GL_VERTEX_SHADER);
         GL43.glShaderSource(vertexShader, vertexShaderSource);
         GL43.glCompileShader(vertexShader);
@@ -53,12 +59,13 @@ public class Test1Renderer
 
         System.out.println("Compiling fragment shader...");
         String fragmentShaderSource = "#version 330 core\n" +
-                "out vec4 FragColor;\n" +
-                "\n" +
+                "out vec4 FragColor;  \n" +
+                "in vec3 ourColor;\n" +
+                "  \n" +
                 "void main()\n" +
                 "{\n" +
-                "    FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n" +
-                "} ";
+                "    FragColor = vec4(ourColor, 1.0);\n" +
+                "}";
         int fragmentShader = GL43.glCreateShader(GL43.GL_FRAGMENT_SHADER);
         GL43.glShaderSource(fragmentShader, fragmentShaderSource);
         GL43.glCompileShader(fragmentShader);
@@ -77,8 +84,12 @@ public class Test1Renderer
         GL43.glBindBuffer(GL43.GL_ARRAY_BUFFER, VBO);
         GL43.glBufferData(GL43.GL_ARRAY_BUFFER, vertices, GL43.GL_STATIC_DRAW);
         // 3. then set our vertex attributes pointers
-        GL43.glVertexAttribPointer(0, 3, GL_FLOAT, false, 3 * 4, 0L);
+        // position attribute
+        GL43.glVertexAttribPointer(0, 3, GL_FLOAT, false, 6 * 4, 0L);
         GL43.glEnableVertexAttribArray(0);
+        // color attribute
+        GL43.glVertexAttribPointer(1, 3, GL_FLOAT, false, 6 * 4, 3*4L);
+        GL43.glEnableVertexAttribArray(1);
     }
 
     public static void render()
@@ -97,6 +108,14 @@ public class Test1Renderer
          */
 
         GL43.glUseProgram(shaderProgram);
+
+        // change color :3
+        // update the uniform color
+        double timeValue = GLFW.glfwGetTime();
+        float greenValue = (float) (Math.sin(timeValue) / 2.0f + 0.5f);
+        int vertexColorLocation = GL43.glGetUniformLocation(shaderProgram, "ourColor");
+        GL43.glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
+
         GL43.glBindVertexArray(VAO);
         GL43.glDrawArrays(GL_TRIANGLES, 0, 3);
     }
