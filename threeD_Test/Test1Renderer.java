@@ -24,6 +24,7 @@ public class Test1Renderer
     private static long window;
     static int shaderProgram;
     static float[] vertices;
+    static float[] vertices2;
     static int VBO;
     static int VAO;
 
@@ -38,47 +39,21 @@ public class Test1Renderer
                 -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,   // bottom left
                 0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f    // top
         };
+
+        vertices2 = new float[]{
+                // first triangle
+                0.5f, 0.5f, 0.0f,  // top right
+                0.5f, -0.5f, 0.0f,  // bottom right
+                -0.5f, 0.5f, 0.0f,  // top left
+                // second triangle
+                0.5f, -0.5f, 0.0f,  // bottom right
+                -0.5f, -0.5f, 0.0f,  // bottom left
+                -0.5f, 0.5f, 0.0f   // top left
+        };
+
         VBO = GL43.glGenBuffers();
         GL43.glBindBuffer(GL43.GL_ARRAY_BUFFER, VBO);
         GL43.glBufferData(GL43.GL_ARRAY_BUFFER, vertices, GL43.GL_STATIC_DRAW);
-
-        System.out.println("Compiling vertex shader...");
-        String vertexShaderSource =
-                "#version 330 core\n" +
-                "layout (location = 0) in vec3 aPos;   // the position variable has attribute position 0\n" +
-                "layout (location = 1) in vec3 aColor; // the color variable has attribute position 1\n" +
-                "  \n" +
-                "out vec3 ourColor; // output a color to the fragment shader\n" +
-                "\n" +
-                "void main()\n" +
-                "{\n" +
-                "    gl_Position = vec4(aPos, 1.0);\n" +
-                "    ourColor = aColor; // set ourColor to the input color we got from the vertex data\n" +
-                "}  ";
-        int vertexShader = GL43.glCreateShader(GL43.GL_VERTEX_SHADER);
-        GL43.glShaderSource(vertexShader, vertexShaderSource);
-        GL43.glCompileShader(vertexShader);
-        System.out.println("Compiled vertex shader. ^w^");
-
-        System.out.println("Compiling fragment shader...");
-        String fragmentShaderSource = "#version 330 core\n" +
-                "out vec4 FragColor;  \n" +
-                "in vec3 ourColor;\n" +
-                "  \n" +
-                "void main()\n" +
-                "{\n" +
-                "    FragColor = vec4(ourColor, 1.0);\n" +
-                "}";
-        int fragmentShader = GL43.glCreateShader(GL43.GL_FRAGMENT_SHADER);
-        GL43.glShaderSource(fragmentShader, fragmentShaderSource);
-        GL43.glCompileShader(fragmentShader);
-        System.out.println("Compiled fragment shader! :3");
-
-        shaderProgram = GL43.glCreateProgram();
-        GL43.glAttachShader(shaderProgram, vertexShader);
-        GL43.glAttachShader(shaderProgram, fragmentShader);
-        GL43.glLinkProgram(shaderProgram);
-        System.out.println("Shader program linked.");
 
         // ..:: Initialization code (done once (unless your object frequently changes)) :: ..
         // 1. bind Vertex Array Object

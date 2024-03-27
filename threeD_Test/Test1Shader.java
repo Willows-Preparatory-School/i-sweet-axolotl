@@ -105,14 +105,6 @@ public class Test1Shader
             System.out.println("ERROR::SHADER::PROGRAM::LINKING_FAILED\n" + infoLog);
         }
 
-        // 3. then set our vertex attributes pointers
-        // position attribute
-        GL43.glVertexAttribPointer(0, 3, GL_FLOAT, false, 6 * 4, 0L);
-        GL43.glEnableVertexAttribArray(0);
-        // color attribute
-        GL43.glVertexAttribPointer(1, 3, GL_FLOAT, false, 6 * 4, 3*4L);
-        GL43.glEnableVertexAttribArray(1);
-
         // delete the shaders as they're linked into our program now and no longer necessary
         GL43.glDeleteShader(vertex);
         GL43.glDeleteShader(fragment);
