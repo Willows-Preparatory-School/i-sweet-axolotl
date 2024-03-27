@@ -24,7 +24,7 @@ public class Test1Renderer
     private static long window;
     static int shaderProgram;
     static float[] vertices;
-    static float[] vertices2;
+    static float texCoords[];
     static int VBO;
     static int VAO;
 
@@ -33,60 +33,38 @@ public class Test1Renderer
     public static void renderInit(long r_window)
     {
         window = r_window;
-        vertices = new float[]{
-                // positions         // colors
-                0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,   // bottom right
-                -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,   // bottom left
-                0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f    // top
-        };
-
-        vertices2 = new float[]{
-                // first triangle
-                0.5f, 0.5f, 0.0f,  // top right
-                0.5f, -0.5f, 0.0f,  // bottom right
-                -0.5f, 0.5f, 0.0f,  // top left
-                // second triangle
-                0.5f, -0.5f, 0.0f,  // bottom right
-                -0.5f, -0.5f, 0.0f,  // bottom left
-                -0.5f, 0.5f, 0.0f   // top left
-        };
-
-        VBO = GL43.glGenBuffers();
-        GL43.glBindBuffer(GL43.GL_ARRAY_BUFFER, VBO);
-        GL43.glBufferData(GL43.GL_ARRAY_BUFFER, vertices, GL43.GL_STATIC_DRAW);
-
-        // ..:: Initialization code (done once (unless your object frequently changes)) :: ..
-        // 1. bind Vertex Array Object
-        GL43.glBindVertexArray(VAO);
-        // 2. copy our vertices array in a buffer for OpenGL to use
-        GL43.glBindBuffer(GL43.GL_ARRAY_BUFFER, VBO);
-        GL43.glBufferData(GL43.GL_ARRAY_BUFFER, vertices, GL43.GL_STATIC_DRAW);
-        // 3. then set our vertex attributes pointers
-        // position attribute
-        GL43.glVertexAttribPointer(0, 3, GL_FLOAT, false, 6 * 4, 0L);
-        GL43.glEnableVertexAttribArray(0);
-        // color attribute
-        GL43.glVertexAttribPointer(1, 3, GL_FLOAT, false, 6 * 4, 3*4L);
-        GL43.glEnableVertexAttribArray(1);
 
         shader = new Test1Shader("shader.vs", "shader.fs");
+
+        // set up vertex data (and buffer(s)) and configure vertex attributes
+        // ------------------------------------------------------------------
+        float vertices[] = {
+                // positions          // colors           // texture coords
+                0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f, // top right
+                0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f, // bottom right
+                -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f, // bottom left
+                -0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f  // top left
+        };
+        int indices[] = {
+            0, 1, 3, // first triangle
+            1, 2, 3  // second triangle
+        };
+
+        int VAO = GL43.glGenVertexArrays();
+        int VBO = GL43.glGenBuffers();
+        int EBO = GL43.glGenBuffers();
+
+        GL43.glBindVertexArray(VAO);
+
+        GL43.glBindBuffer(GL_ARRAY_BUFFER, VBO);
+        GL43.glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+        GL43.glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+        GL43.glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
     }
 
     public static void render()
     {
-        /*
-        // 0. copy our vertices array in a buffer for OpenGL to use
-        GL43.glBindBuffer(GL43.GL_ARRAY_BUFFER, VBO);
-        GL43.glBufferData(GL43.GL_ARRAY_BUFFER, vertices, GL43.GL_STATIC_DRAW);
-        // 1. then set the vertex attributes pointers
-        GL43.glVertexAttribPointer(0, 3, GL_FLOAT, false, 3 * 4, 0L);
-        GL43.glEnableVertexAttribArray(0);
-        // 2. use our shader program when we want to render an object
-        GL43.glUseProgram(shaderProgram);
-        // 3. now draw the object
-        //someOpenGLFunctionThatDrawsOurTriangle();
-         */
-
         //GL43.glUseProgram(shaderProgram);
         shader.use();
         //shader.setFloat("ourColor", 1.0f);
