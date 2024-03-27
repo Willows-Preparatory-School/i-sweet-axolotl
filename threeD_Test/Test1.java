@@ -3,14 +3,24 @@ package threeD_Test;
 import org.joml.Matrix4f;
 import org.joml.Quaternionf;
 import org.joml.Vector3f;
+import org.lwjgl.Version;
 import org.lwjgl.glfw.*;
-import org.lwjgl.opengl.*;
+//import org.lwjgl.opengl.*;
+import org.lwjgl.opengl.GL;
+import org.lwjgl.opengl.GL43;
+import org.lwjgl.opengl.GLCapabilities;
 import org.lwjgl.system.*;
 
 import java.nio.IntBuffer;
+import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static org.lwjgl.glfw.GLFW.nglfwGetFramebufferSize;
+import static org.lwjgl.glfw.Callbacks.glfwFreeCallbacks;
+import static org.lwjgl.glfw.GLFW.*;
+import static org.lwjgl.glfw.GLFW.glfwSetErrorCallback;
+import static org.lwjgl.opengl.GL43.*;
+import static org.lwjgl.system.MemoryStack.stackPush;
+import static org.lwjgl.system.MemoryUtil.NULL;
 import static org.lwjgl.system.MemoryUtil.memAddress;
 
 public class Test1 {
@@ -18,81 +28,121 @@ public class Test1 {
     private int width = 1200;
     private int height = 800;
 
-    private static void run() {
-        System.out.println("Hello!");
-        // Initialize GLFW
-        if (!GLFW.glfwInit())
+    private static void run()
+    {
+        System.out.println("Hello LWJGL " + Version.getVersion() + "!");
+
+        init();
+        loop();
+
+        // Free the window callbacks and destroy the window
+        glfwFreeCallbacks(window);
+        glfwDestroyWindow(window);
+
+        // Terminate GLFW and free the error callback
+        glfwTerminate();
+        Objects.requireNonNull(glfwSetErrorCallback(null)).free();
+    }
+
+    private static void init()
+    {
+        // Setup an error callback. The default implementation
+        // will print the error message in System.err.
+        GLFWErrorCallback.createPrint(System.err).set();
+
+        // Initialize GLFW. Most GLFW functions will not work before doing this.
+        if ( !glfwInit() )
             throw new IllegalStateException("Unable to initialize GLFW");
-        GLFW.glfwWindowHint(GLFW.GLFW_VISIBLE, GLFW.GLFW_FALSE);
-        GLFW.glfwWindowHint(GLFW.GLFW_RESIZABLE, GLFW.GLFW_TRUE);
 
-        AtomicInteger width = new AtomicInteger(800);
-        AtomicInteger height = new AtomicInteger(600);
-        // Create a window
-        window = GLFW.glfwCreateWindow(width.get(), height.get(), "Hello World", 0, 0);
-        if (window == 0) {
-            System.out.println("Failed to create window");
-            GLFW.glfwTerminate();
-            return;
-        }
+        // Configure GLFW
+        glfwDefaultWindowHints(); // optional, the current window hints are already the default
+        glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE); // the window will stay hidden after creation
+        glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE); // the window will be resizable
 
-        // Make the window's context current
-        GLFW.glfwMakeContextCurrent(window);
+        // Create the window
+        window = glfwCreateWindow(800, 600, "video games >:3", NULL, NULL);
+        if ( window == NULL )
+            throw new RuntimeException("Failed to create the GLFW window");
 
-        // HiDPI fix:
-        try (MemoryStack frame = MemoryStack.stackPush()) {
-            IntBuffer framebufferSize = frame.mallocInt(2);
-            nglfwGetFramebufferSize(window, memAddress(framebufferSize), memAddress(framebufferSize) + 4);
-            width.set(framebufferSize.get(0));
-            height.set(framebufferSize.get(1));
-        }
+        // Setup a key callback. It will be called every time a key is pressed, repeated or released.
+        glfwSetKeyCallback(window, (window, key, scancode, action, mods) -> {
+            if ( key == GLFW_KEY_ESCAPE && action == GLFW_RELEASE )
+                glfwSetWindowShouldClose(window, true); // We will detect this in the rendering loop
+        });
 
-        GLFW.glfwMakeContextCurrent(window);
-        GLFW.glfwSwapInterval(1);
+        // Get the thread stack and push a new frame
+        try ( MemoryStack stack = stackPush() ) {
+            IntBuffer pWidth = stack.mallocInt(1); // int*
+            IntBuffer pHeight = stack.mallocInt(1); // int*
+
+            // Get the window size passed to glfwCreateWindow
+            glfwGetWindowSize(window, pWidth, pHeight);
+
+            // Get the resolution of the primary monitor
+            GLFWVidMode videomode = glfwGetVideoMode(glfwGetPrimaryMonitor());
+
+            // Center the window
+            assert videomode != null;
+            glfwSetWindowPos(
+                    window,
+                    (videomode.width() - pWidth.get(0)) / 2,
+                    (videomode.height() - pHeight.get(0)) / 2
+            );
+        } // the stack frame is popped automatically
+
+        // Make the OpenGL context current
+        glfwMakeContextCurrent(window);
+        // Enable v-sync
+        glfwSwapInterval(1);
+
+        // Make the window visible
+        glfwShowWindow(window);
 
         // Initialize OpenGL
         GLCapabilities caps = GL.createCapabilities();
-
         // Check if OpenGL 4.3 is supported
         if (!GL.getCapabilities().OpenGL43) {
             // Throw an error
             System.out.println("ERROR: OpenGL 4.3 appears to not be supported.\n" +
                     "You may crash!!!");
-            System.out.println("OpenGL version found: " + GL11.glGetString(GL11.GL_VERSION));
+            System.out.println("OpenGL version found: " + GL43.glGetString(GL43.GL_VERSION));
             //throw new RuntimeException("OpenGL 4.3 is not supported");
         }
         else
         {
-            System.out.println("OpenGL version found: " + GL11.glGetString(GL11.GL_VERSION));
+            System.out.println("OpenGL version found: " + GL43.glGetString(GL43.GL_VERSION));
         }
 
         // Set the clear color
-        GL43.glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+        glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
+        // TODO: use the other videomode, please.
+        GLFWVidMode videomode_render = glfwGetVideoMode(glfwGetPrimaryMonitor());
+        assert videomode_render != null; // is videomode not null?
+
+        // Debug output
+        System.out.println("Refresh rate: " + videomode_render.refreshRate() + "hz");
+    }
+
+    private static void loop()
+    {
         Test1Renderer.renderInit(window);
 
-        System.out.println("Loop start.");
-        // The game loop
-        while (!GLFW.glfwWindowShouldClose(window)) {
-            // Clear the screen
-            GL43.glClear(GL43.GL_COLOR_BUFFER_BIT);
+        while ( !glfwWindowShouldClose(window) )
+        {
+            // GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT
+            glClear(GL_COLOR_BUFFER_BIT); // clear the framebuffer
 
-            // -----------RENDER HERE--------
-            //Test1Renderer.render();
-            // ------END OF RENDER CODE------
+            // Render everything in under this line
+            Test1Renderer.render();
+            //End of render code.
 
-            // Swap buffers
-            GLFW.glfwSwapBuffers(window);
+            glfwSwapBuffers(window); // swap the color buffers
 
-            // Poll for events
-            GLFW.glfwPollEvents();
+            // Poll for window events. The key callback above will only be
+            // invoked during this call.
+            glfwPollEvents();
         }
-
-        // Destroy the window
-        GLFW.glfwDestroyWindow(window);
-
-        // Terminate GLFW
-        GLFW.glfwTerminate();
     }
 
     public static void main(String[] args)
