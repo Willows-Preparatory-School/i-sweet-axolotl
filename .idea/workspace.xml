@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3c546669-189f-47dc-8e89-bd3f0c82f4c2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/threeD_Test/Test1Shader.java" beforeDir="false" afterPath="$PROJECT_DIR$/threeD_Test/Test1Shader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/working_directory/shader.fs" beforeDir="false" afterPath="$PROJECT_DIR$/working_directory/shader.fs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

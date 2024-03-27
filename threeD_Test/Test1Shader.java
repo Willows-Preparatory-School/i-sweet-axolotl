@@ -11,6 +11,8 @@ import java.io.InputStream;
 import java.util.Scanner;
 import java.util.logging.FileHandler;
 
+import static org.lwjgl.opengl.GL11.GL_FLOAT;
+
 /* A shader class to help us manage shaders :3 */
 public class Test1Shader
 {
@@ -103,6 +105,14 @@ public class Test1Shader
             System.out.println("ERROR::SHADER::PROGRAM::LINKING_FAILED\n" + infoLog);
         }
 
+        // 3. then set our vertex attributes pointers
+        // position attribute
+        GL43.glVertexAttribPointer(0, 3, GL_FLOAT, false, 6 * 4, 0L);
+        GL43.glEnableVertexAttribArray(0);
+        // color attribute
+        GL43.glVertexAttribPointer(1, 3, GL_FLOAT, false, 6 * 4, 3*4L);
+        GL43.glEnableVertexAttribArray(1);
+
         // delete the shaders as they're linked into our program now and no longer necessary
         GL43.glDeleteShader(vertex);
         GL43.glDeleteShader(fragment);
@@ -129,6 +139,7 @@ public class Test1Shader
 
     public void setVec4f(String name, Vector4f value)
     {
+        //System.out.println("Intercepted: (" + value.w + "," + value.x + "," + value.y + "," + value.z + ")");
         GL43.glUniform4f(GL43.glGetUniformLocation(ID, name), value.w, value.x, value.y, value.z);
     }
 }
