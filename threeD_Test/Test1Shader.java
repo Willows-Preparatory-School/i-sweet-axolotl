@@ -1,5 +1,7 @@
 package threeD_Test;
 
+import org.joml.Vector3f;
+import org.joml.Vector4f;
 import org.lwjgl.opengl.GL43;
 
 import java.io.File;
@@ -109,19 +111,24 @@ public class Test1Shader
     // use/activate the shader
     public void use()
     {
-        /* */
+        GL43.glUseProgram(ID);
     }
 
     // utility uniform functions
-    public void setBool(String name, boolean value) {
-
+    public void setBool(String name, int value) {
+        GL43.glUniform1i(GL43.glGetUniformLocation(ID, name), value);
     }
 
     public void setInt(String name, int value) {
-
+        GL43.glUniform1i(GL43.glGetUniformLocation(ID, name), value);
     }
 
     public void setFloat(String name, float value) {
+        GL43.glUniform1f(GL43.glGetUniformLocation(ID, name), value);
+    }
 
+    public void setVec4f(String name, Vector4f value)
+    {
+        GL43.glUniform4f(GL43.glGetUniformLocation(ID, name), value.w, value.x, value.y, value.z);
     }
 }
