@@ -56,11 +56,13 @@ public class Test1Renderer
 
         GL43.glBindVertexArray(VAO);
 
+        /*
         GL43.glBindBuffer(GL_ARRAY_BUFFER, VBO);
         GL43.glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
         GL43.glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
         GL43.glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+         */
     }
 
     public static void render()
