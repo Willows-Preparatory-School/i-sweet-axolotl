@@ -74,17 +74,21 @@ public class Main implements IAppLogic {
                 scene.getTextureCache());
         scene.addModel(cubeModel);
 
+        Model coneModel = ModelLoader.loadModel("cone-model", "resources/models/cone/cone.obj",
+                scene.getTextureCache());
+        scene.addModel(coneModel);
+
         cubeEntity = new Entity("cube-entity", cubeModel.getId());
         cubeEntity.setPosition(0, 0, -2);
         scene.addEntity(cubeEntity);
 
-        pointEntity = new Entity("cube-entity", cubeModel.getId());
+        pointEntity = new Entity("pointEntity-entity", coneModel.getId());
         pointEntity.setPosition(0, 0, -2);
         scene.addEntity(pointEntity);
-        spotEntity = new Entity("spotEntity-entity", cubeModel.getId());
+        spotEntity = new Entity("spotEntity-entity", coneModel.getId());
         spotEntity.setPosition(0, 0, -2);
         scene.addEntity(spotEntity);
-        dirEntity = new Entity("dirEntity-entity", cubeModel.getId());
+        dirEntity = new Entity("dirEntity-entity", coneModel.getId());
         dirEntity.setPosition(0, 0, -2);
         scene.addEntity(dirEntity);
 
