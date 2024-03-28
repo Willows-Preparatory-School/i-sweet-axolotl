@@ -24,6 +24,10 @@ public class Main implements IAppLogic {
     private static final float MOUSE_SENSITIVITY = 0.1f;
     private static final float MOVEMENT_SPEED = 0.005f;
     private Entity cubeEntity;
+    private Entity pointEntity;
+    private Entity spotEntity;
+    private Entity dirEntity;
+
     private Vector4f displInc = new Vector4f();
     private float rotation;
     private LightControls lightControls;
@@ -74,6 +78,16 @@ public class Main implements IAppLogic {
         cubeEntity.setPosition(0, 0, -2);
         scene.addEntity(cubeEntity);
 
+        pointEntity = new Entity("cube-entity", cubeModel.getId());
+        pointEntity.setPosition(0, 0, -2);
+        scene.addEntity(pointEntity);
+        spotEntity = new Entity("spotEntity-entity", cubeModel.getId());
+        spotEntity.setPosition(0, 0, -2);
+        scene.addEntity(spotEntity);
+        dirEntity = new Entity("dirEntity-entity", cubeModel.getId());
+        dirEntity.setPosition(0, 0, -2);
+        scene.addEntity(dirEntity);
+
         SceneLights sceneLights = new SceneLights();
         sceneLights.getAmbientLight().setIntensity(0.3f);
         scene.setSceneLights(sceneLights);
@@ -90,6 +104,7 @@ public class Main implements IAppLogic {
         // move model for easy viewing.
         cubeEntity.setRotation(0, 1, 0, 80);
         cubeEntity.setPosition(0, -0.4f, -1.1f);
+        cubeEntity.updateModelMatrix(); // idk why we need this, but we do :3
     }
 
     public void input(Window window, Scene scene, long diffTimeMillis, boolean inputConsumed) {
@@ -131,6 +146,20 @@ public class Main implements IAppLogic {
         }
         cubeEntity.setRotation(1, 1, 1, (float) Math.toRadians(rotation));
          */
-        cubeEntity.updateModelMatrix();
+        //cubeEntity.updateModelMatrix();
+        SceneLights sceneLights = scene.getSceneLights();
+        SpotLight spotLight = sceneLights.getSpotLights().get(0);
+        DirLight dirLight = sceneLights.getDirLight();
+        PointLight pointLight = sceneLights.getPointLights().get(0);
+        spotEntity.setPosition(spotLight.getPointLight().getPosition().x, spotLight.getPointLight().getPosition().y, spotLight.getPointLight().getPosition().z);
+        dirEntity.setPosition(dirLight.getDirection().x, dirLight.getDirection().y, dirLight.getDirection().z);
+        pointEntity.setPosition(pointLight.getPosition().x, pointLight.getPosition().y, pointLight.getPosition().z);
+        //spotEntity.setScale(0.2f);
+        //dirEntity.setScale(0.2f);
+        //pointEntity.setScale(0.2f);
+        //spotLight.getPointLight().getPosition()
+        spotEntity.updateModelMatrix();
+        dirEntity.updateModelMatrix();
+        pointEntity.updateModelMatrix();
     }
 }
