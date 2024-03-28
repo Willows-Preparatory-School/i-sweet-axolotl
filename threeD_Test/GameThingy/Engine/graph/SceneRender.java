@@ -6,6 +6,7 @@ import threeD_Test.GameThingy.Engine.scene.Scene;
 import java.util.*;
 
 import static org.lwjgl.opengl.GL30.*;
+import org.joml.Vector4f;
 
 public class SceneRender {
 
@@ -30,6 +31,7 @@ public class SceneRender {
         uniformsMap.createUniform("modelMatrix");
         uniformsMap.createUniform("viewMatrix");
         uniformsMap.createUniform("txtSampler");
+        uniformsMap.createUniform("material.diffuse");
     }
 
     public void render(Scene scene) {
@@ -45,6 +47,7 @@ public class SceneRender {
             List<Entity> entities = model.getEntitiesList();
 
             for (Material material : model.getMaterialList()) {
+                uniformsMap.setUniform("material.diffuse", material.getDiffuseColor());
                 Texture texture = textureCache.getTexture(material.getTexturePath());
                 glActiveTexture(GL_TEXTURE0);
                 texture.bind();
