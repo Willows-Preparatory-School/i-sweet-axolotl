@@ -13,6 +13,7 @@ public class Scene {
     private Map<String, Model> modelMap;
     private TextureCache textureCache;
     private Camera camera;
+    private SkyBox skyBox;
     private IGuiInstance guiInstance;
     private Projection projection;
     private SceneLights sceneLights;
@@ -38,6 +39,10 @@ public class Scene {
 
     public IGuiInstance getGuiInstance() {
         return guiInstance;
+    }
+
+    public SkyBox getSkyBox() {
+        return skyBox;
     }
 
     public void addEntity(Entity entity) {
@@ -71,6 +76,10 @@ public class Scene {
 
     public void setSceneLights(SceneLights sceneLights) {
         this.sceneLights = sceneLights;
+    }
+
+    public void setSkyBox(SkyBox skyBox) {
+        this.skyBox = skyBox;
     }
 
     public void resize(int width, int height) {

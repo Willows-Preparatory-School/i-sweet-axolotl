@@ -10,10 +10,7 @@ import org.tinylog.core.LogEntry;
 import threeD_Test.GameThingy.Engine.*;
 import threeD_Test.GameThingy.Engine.Window;
 import threeD_Test.GameThingy.Engine.graph.*;
-import threeD_Test.GameThingy.Engine.scene.Camera;
-import threeD_Test.GameThingy.Engine.scene.Entity;
-import threeD_Test.GameThingy.Engine.scene.ModelLoader;
-import threeD_Test.GameThingy.Engine.scene.Scene;
+import threeD_Test.GameThingy.Engine.scene.*;
 import threeD_Test.GameThingy.Engine.scene.lights.*;
 
 import java.awt.*;
@@ -26,6 +23,9 @@ import static org.lwjgl.glfw.GLFW.*;
 public class Main implements IAppLogic {
     private static final float MOUSE_SENSITIVITY = 0.1f;
     private static final float MOVEMENT_SPEED = 0.005f;
+    private static final int NUM_CHUNKS = 4;
+
+    private Entity[][] terrainEntities;
     private Entity cubeEntity;
     private Entity pointEntity;
     private Entity spotEntity;
@@ -90,6 +90,22 @@ public class Main implements IAppLogic {
     public void init(Window window, Scene scene, Render render) {
         Logger.info("Starting game init...");
 
+        String quadModelId = "quad-model";
+        Model quadModel = ModelLoader.loadModel("quad-model", "resources/models/quad/quad.obj",
+                scene.getTextureCache());
+        scene.addModel(quadModel);
+
+        int numRows = NUM_CHUNKS * 2 + 1;
+        int numCols = numRows;
+        terrainEntities = new Entity[numRows][numCols];
+        for (int j = 0; j < numRows; j++) {
+            for (int i = 0; i < numCols; i++) {
+                Entity entity = new Entity("TERRAIN_" + j + "_" + i, quadModelId);
+                terrainEntities[j][i] = entity;
+                scene.addEntity(entity);
+            }
+        }
+
         Model cubeModel = ModelLoader.loadModel("cube-model", "resources/models/computer/computer.obj",
                 scene.getTextureCache());
         scene.addModel(cubeModel);
@@ -113,17 +129,23 @@ public class Main implements IAppLogic {
         scene.addEntity(dirEntity);
 
         SceneLights sceneLights = new SceneLights();
-        sceneLights.getAmbientLight().setIntensity(0.3f);
+        sceneLights.getAmbientLight().setIntensity(0.2f);
         scene.setSceneLights(sceneLights);
-        sceneLights.getPointLights().add(new PointLight(new Vector3f(1, 1, 1),
-                new Vector3f(0, 0, -1.4f), 1.0f));
+//        sceneLights.getPointLights().add(new PointLight(new Vector3f(1, 1, 1),
+//                new Vector3f(0, 0, -1.4f), 1.0f));
+//
+//        Vector3f coneDir = new Vector3f(0, 0, -1);
+//        sceneLights.getSpotLights().add(new SpotLight(new PointLight(new Vector3f(1, 1, 1),
+//                new Vector3f(0, 0, -1.4f), 0.0f), coneDir, 140.0f));
+//
+//        lightControls = new LightControls(scene);
+//        scene.setGuiInstance(lightControls);
 
-        Vector3f coneDir = new Vector3f(0, 0, -1);
-        sceneLights.getSpotLights().add(new SpotLight(new PointLight(new Vector3f(1, 1, 1),
-                new Vector3f(0, 0, -1.4f), 0.0f), coneDir, 140.0f));
+        SkyBox skyBox = new SkyBox("resources/models/skybox/skybox.obj", scene.getTextureCache());
+        skyBox.getSkyBoxEntity().setScale(50);
+        scene.setSkyBox(skyBox);
 
-        lightControls = new LightControls(scene);
-        scene.setGuiInstance(lightControls);
+        scene.getCamera().moveUp(0.1f);
 
         // move model for easy viewing.
         cubeEntity.setRotation(0, 1, 0, 80);
@@ -173,19 +195,19 @@ public class Main implements IAppLogic {
         //cubeEntity.updateModelMatrix();
 
         //TODO: There are better ways to do this >w<
-        SceneLights sceneLights = scene.getSceneLights();
-        SpotLight spotLight = sceneLights.getSpotLights().get(0);
-        DirLight dirLight = sceneLights.getDirLight();
-        PointLight pointLight = sceneLights.getPointLights().get(0);
-        spotEntity.setPosition(spotLight.getPointLight().getPosition().x, spotLight.getPointLight().getPosition().y, spotLight.getPointLight().getPosition().z);
-        dirEntity.setPosition(dirLight.getDirection().x, dirLight.getDirection().y, dirLight.getDirection().z);
-        pointEntity.setPosition(pointLight.getPosition().x, pointLight.getPosition().y, pointLight.getPosition().z);
-        //spotEntity.setScale(0.2f);
-        //dirEntity.setScale(0.2f);
-        //pointEntity.setScale(0.2f);
-        //spotLight.getPointLight().getPosition()
-        spotEntity.updateModelMatrix();
-        dirEntity.updateModelMatrix();
-        pointEntity.updateModelMatrix();
+//        SceneLights sceneLights = scene.getSceneLights();
+//        SpotLight spotLight = sceneLights.getSpotLights().get(0);
+//        DirLight dirLight = sceneLights.getDirLight();
+//        PointLight pointLight = sceneLights.getPointLights().get(0);
+//        spotEntity.setPosition(spotLight.getPointLight().getPosition().x, spotLight.getPointLight().getPosition().y, spotLight.getPointLight().getPosition().z);
+//        dirEntity.setPosition(dirLight.getDirection().x, dirLight.getDirection().y, dirLight.getDirection().z);
+//        pointEntity.setPosition(pointLight.getPosition().x, pointLight.getPosition().y, pointLight.getPosition().z);
+//        //spotEntity.setScale(0.2f);
+//        //dirEntity.setScale(0.2f);
+//        //pointEntity.setScale(0.2f);
+//        //spotLight.getPointLight().getPosition()
+//        spotEntity.updateModelMatrix();
+//        dirEntity.updateModelMatrix();
+//        pointEntity.updateModelMatrix();
     }
 }
