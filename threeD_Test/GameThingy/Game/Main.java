@@ -5,6 +5,7 @@ import imgui.ImGuiIO;
 import imgui.flag.ImGuiCond;
 import org.joml.Math;
 import threeD_Test.GameThingy.Engine.*;
+import threeD_Test.GameThingy.Engine.Window;
 import threeD_Test.GameThingy.Engine.graph.*;
 import threeD_Test.GameThingy.Engine.scene.Camera;
 import threeD_Test.GameThingy.Engine.scene.Entity;
@@ -12,6 +13,7 @@ import threeD_Test.GameThingy.Engine.scene.ModelLoader;
 import threeD_Test.GameThingy.Engine.scene.Scene;
 import threeD_Test.GameThingy.Engine.scene.lights.*;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import org.joml.*;
@@ -130,5 +132,16 @@ public class Main implements IAppLogic {
         cubeEntity.setRotation(1, 1, 1, (float) Math.toRadians(rotation));
          */
         cubeEntity.updateModelMatrix();
+        SceneLights sceneLights = scene.getSceneLights();
+        AmbientLight ambientLight = sceneLights.getAmbientLight();
+        // Get the current time in milliseconds
+        long time = System.currentTimeMillis();
+
+        // Calculate the hue based on the time
+        float hue = (float) (time % 60000) / 60000.0f;
+
+        // Create a new Color object with the calculated hue
+        Color color = Color.getHSBColor(hue, 1.0f, 1.0f);
+        ambientLight.setColor(color.getRed(), color.getGreen(), color.getBlue());
     }
 }
