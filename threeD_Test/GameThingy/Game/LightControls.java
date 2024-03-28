@@ -3,8 +3,10 @@ package threeD_Test.GameThingy.Game;
 import imgui.*;
 import imgui.flag.ImGuiCond;
 import org.joml.*;
+import org.tinylog.Logger;
 import threeD_Test.GameThingy.Engine.IGuiInstance;
 import threeD_Test.GameThingy.Engine.MouseInput;
+import threeD_Test.GameThingy.Engine.Utils;
 import threeD_Test.GameThingy.Engine.Window;
 import threeD_Test.GameThingy.Engine.scene.lights.*;
 import threeD_Test.GameThingy.Engine.scene.Scene;
@@ -36,6 +38,7 @@ public class LightControls implements IGuiInstance {
     private float[] spotLightZ;
 
     public LightControls(Scene scene) {
+        Logger.info("Init LightControls...");
         SceneLights sceneLights = scene.getSceneLights();
         AmbientLight ambientLight = sceneLights.getAmbientLight();
         Vector3f color = ambientLight.getColor();

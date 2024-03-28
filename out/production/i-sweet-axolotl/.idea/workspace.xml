@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8c3c5df7-e5c2-4a79-986f-3eef7a5aaa33" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/GameThingy/Game/LightControls.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/GameThingy/Game/LightControls.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/GameThingy/Game/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/GameThingy/Game/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/threeD_Test/GameThingy/Engine/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/threeD_Test/GameThingy/Engine/Utils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/threeD_Test/GameThingy/Game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/threeD_Test/GameThingy/Game/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

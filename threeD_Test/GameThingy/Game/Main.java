@@ -4,6 +4,9 @@ import imgui.ImGui;
 import imgui.ImGuiIO;
 import imgui.flag.ImGuiCond;
 import org.joml.Math;
+import org.lwjglx.debug.Log;
+import org.tinylog.Logger;
+import org.tinylog.core.LogEntry;
 import threeD_Test.GameThingy.Engine.*;
 import threeD_Test.GameThingy.Engine.Window;
 import threeD_Test.GameThingy.Engine.graph.*;
@@ -31,11 +34,25 @@ public class Main implements IAppLogic {
     private Vector4f displInc = new Vector4f();
     private float rotation;
     private LightControls lightControls;
+
+    public Main() {
+    }
+
     public static void main(String[] args) {
+        Logger.info("Hello, world!");
+        Logger.info( "\n-----LOGGER SETTINGS-----" +
+                "\nisDebugEnabled: " + Logger.isDebugEnabled() +
+                        "\nisErrorEnabled: " + Logger.isErrorEnabled() +
+                "\nisInfoEnabled: " + Logger.isInfoEnabled() +
+                        "\nisTraceEnabled: " + Logger.isTraceEnabled() +
+                        "\nisWarnEnabled: " + Logger.isWarnEnabled() +
+                    "\n--------------------------"
+        );
         Main main = new Main();
         Window.WindowOptions windowOptions = new Window.WindowOptions();
         windowOptions.height = 600;
         windowOptions.width = 800;
+        Logger.info("Starting engine...");
         Engine gameEng = new Engine("game engine thingy >:3", windowOptions, main);
         gameEng.start();
     }
@@ -67,9 +84,12 @@ public class Main implements IAppLogic {
     @Override
     public void cleanup() {
         // Nothing to be done yet
+        Logger.debug("Game; cleanup.");
     }
 
     public void init(Window window, Scene scene, Render render) {
+        Logger.info("Starting game init...");
+
         Model cubeModel = ModelLoader.loadModel("cube-model", "resources/models/computer/computer.obj",
                 scene.getTextureCache());
         scene.addModel(cubeModel);

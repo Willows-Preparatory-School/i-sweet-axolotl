@@ -18,4 +18,21 @@ public class Utils {
         }
         return str;
     }
+
+    public static enum logType
+    {
+        LOG,
+        WARN,
+        ERROR,
+        DEBUG
+    };
+    public static void log(logType logLevel, String msg)
+    {
+        switch (logLevel) {
+            case LOG -> System.out.println("[LOG]: " + msg);
+            case WARN -> System.out.println("[WARN]: " + msg);
+            case ERROR -> System.out.println("[ERROR]: " + msg);
+            case DEBUG -> System.out.println("[DEBUG]: " + msg);
+        }
+    }
 }

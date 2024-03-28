@@ -20,6 +20,7 @@ public class Window {
     private int width;
 
     public Window(String title, WindowOptions opts, Callable<Void> resizeFunc) {
+        Logger.info("Window init...");
         this.resizeFunc = resizeFunc;
         if (!glfwInit()) {
             throw new IllegalStateException("Unable to initialize GLFW");
