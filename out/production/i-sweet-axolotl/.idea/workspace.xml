@@ -5,7 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="212df244-dcba-49a3-bcd7-f2765170b137" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/threeD_Test/Engine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/threeD_Test/GameThingy/Engine/Utils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/threeD_Test/GameThingy/Engine/graph/Mesh.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/threeD_Test/GameThingy/Engine/graph/SceneRender.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/threeD_Test/GameThingy/Engine/graph/ShaderProgram.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/threeD_Test/GameThingy/Engine/scene/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/threeD_Test/GameThingy/Engine/scene/Scene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/threeD_Test/GameThingy/Game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/threeD_Test/GameThingy/Game/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/working_directory/res/container.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/working_directory/shader.fs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/working_directory/shader.vs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,8 +48,8 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/axolotl/IdeaProjects/i-sweet-axolotl/working_directory&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/axolotl/IdeaProjects/i-sweet-axolotl/lib/tinylog-impl-2.7.0.jar&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
@@ -53,7 +61,7 @@
   </component>
   <component name="RunManager" selected="Application.Engine">
     <configuration name="Engine" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="threeD_Test.Engine.Engine" />
+      <option name="MAIN_CLASS_NAME" value="threeD_Test.GameThingy.Game.Main" />
       <module name="i-sweet-axolotl" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/working_directory" />
       <method v="2">

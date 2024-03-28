@@ -1,6 +1,7 @@
 package threeD_Test.GameThingy.Game;
 
 import threeD_Test.GameThingy.Engine.*;
+import threeD_Test.GameThingy.Engine.graph.Mesh;
 import threeD_Test.GameThingy.Engine.graph.Render;
 import threeD_Test.GameThingy.Engine.scene.Scene;
 
@@ -8,7 +9,10 @@ public class Main implements IAppLogic {
 
     public static void main(String[] args) {
         Main main = new Main();
-        Engine gameEng = new Engine("chapter-02", new Window.WindowOptions(), main);
+        Window.WindowOptions windowOptions = new Window.WindowOptions();
+        windowOptions.height = 600;
+        windowOptions.width = 800;
+        Engine gameEng = new Engine("game engine thingy >:3", windowOptions, main);
         gameEng.start();
     }
 
@@ -19,7 +23,13 @@ public class Main implements IAppLogic {
 
     @Override
     public void init(Window window, Scene scene, Render render) {
-        // Nothing to be done yet
+        float[] positions = new float[]{
+                0.0f, 0.5f, 0.0f,
+                -0.5f, -0.5f, 0.0f,
+                0.5f, -0.5f, 0.0f
+        };
+        Mesh mesh = new Mesh(positions, 3);
+        scene.addMesh("triangle", mesh);
     }
 
     @Override
