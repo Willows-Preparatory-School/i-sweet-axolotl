@@ -9,6 +9,8 @@ import threeD_Test.GameThingy.Engine.Window;
 import threeD_Test.GameThingy.Engine.scene.lights.*;
 import threeD_Test.GameThingy.Engine.scene.Scene;
 
+import java.awt.*;
+
 public class LightControls implements IGuiInstance {
 
     private float[] ambientColor;
