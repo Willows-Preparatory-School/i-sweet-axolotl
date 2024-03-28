@@ -90,7 +90,7 @@ public class Main implements IAppLogic {
     public void init(Window window, Scene scene, Render render) {
         Logger.info("Starting game init...");
 
-        Model cubeModel = ModelLoader.loadModel("cube-model", "resources/models/computer/computer.obj",
+        Model cubeModel = ModelLoader.loadModel("cube-model", "resources/models/cube/cube.obj",
                 scene.getTextureCache());
         scene.addModel(cubeModel);
 
