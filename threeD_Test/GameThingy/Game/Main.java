@@ -151,6 +151,8 @@ public class Main implements IAppLogic {
         cubeEntity.setRotation(1, 1, 1, (float) Math.toRadians(rotation));
          */
         //cubeEntity.updateModelMatrix();
+
+        //TODO: There are better ways to do this >w<
         SceneLights sceneLights = scene.getSceneLights();
         SpotLight spotLight = sceneLights.getSpotLights().get(0);
         DirLight dirLight = sceneLights.getDirLight();
