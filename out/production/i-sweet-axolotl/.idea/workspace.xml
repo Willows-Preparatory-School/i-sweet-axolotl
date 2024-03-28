@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="212df244-dcba-49a3-bcd7-f2765170b137" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/threeD_Test/GameThingy/Engine/Utils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/threeD_Test/GameThingy/Engine/graph/Mesh.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/threeD_Test/GameThingy/Engine/graph/SceneRender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/threeD_Test/GameThingy/Engine/graph/ShaderProgram.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/threeD_Test/GameThingy/Engine/scene/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/threeD_Test/GameThingy/Engine/scene/Scene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/threeD_Test/GameThingy/Engine/graph/Mesh.java" beforeDir="false" afterPath="$PROJECT_DIR$/threeD_Test/GameThingy/Engine/graph/Mesh.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/threeD_Test/GameThingy/Engine/graph/SceneRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/threeD_Test/GameThingy/Engine/graph/SceneRender.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/threeD_Test/GameThingy/Game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/threeD_Test/GameThingy/Game/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/working_directory/res/container.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/working_directory/shader.fs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/working_directory/shader.vs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/working_directory/resources/shaders/scene.frag" beforeDir="false" afterPath="$PROJECT_DIR$/working_directory/resources/shaders/scene.frag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/working_directory/resources/shaders/scene.vert" beforeDir="false" afterPath="$PROJECT_DIR$/working_directory/resources/shaders/scene.vert" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
