@@ -84,6 +84,10 @@ public class Main implements IAppLogic {
 
         lightControls = new LightControls(scene);
         scene.setGuiInstance(lightControls);
+
+        // move model for easy viewing.
+        cubeEntity.setRotation(0, 1, 0, 80);
+        cubeEntity.setPosition(0, -0.4f, -1.1f);
     }
 
     public void input(Window window, Scene scene, long diffTimeMillis, boolean inputConsumed) {
