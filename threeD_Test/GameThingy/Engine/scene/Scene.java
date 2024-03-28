@@ -10,12 +10,18 @@ public class Scene {
 
     private Map<String, Model> modelMap;
     private TextureCache textureCache;
+    private Camera camera;
     private Projection projection;
 
     public Scene(int width, int height) {
         modelMap = new HashMap<>();
         projection = new Projection(width, height);
         textureCache = new TextureCache();
+        camera = new Camera();
+    }
+
+    public Camera getCamera() {
+        return camera;
     }
 
     public TextureCache getTextureCache() {

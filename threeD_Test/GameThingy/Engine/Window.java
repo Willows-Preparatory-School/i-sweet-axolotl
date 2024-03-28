@@ -16,6 +16,7 @@ public class Window {
     private final long windowHandle;
     private int height;
     private Callable<Void> resizeFunc;
+    private MouseInput mouseInput;
     private int width;
 
     public Window(String title, WindowOptions opts, Callable<Void> resizeFunc) {
@@ -77,6 +78,11 @@ public class Window {
         glfwGetFramebufferSize(windowHandle, arrWidth, arrHeight);
         width = arrWidth[0];
         height = arrHeight[0];
+        mouseInput = new MouseInput(windowHandle);
+    }
+
+    public MouseInput getMouseInput() {
+        return mouseInput;
     }
 
     public void cleanup() {
