@@ -1,118 +1,88 @@
 package threeD_Test.GameThingy.Engine;
 
-import org.lwjgl.Version;
-import org.lwjgl.glfw.GLFWErrorCallback;
-import org.lwjgl.glfw.GLFWVidMode;
-import org.lwjgl.opengl.GL;
-import org.lwjgl.opengl.GL43;
-import org.lwjgl.system.MemoryStack;
-
-import java.nio.IntBuffer;
-
-import static org.lwjgl.glfw.Callbacks.glfwFreeCallbacks;
-import static org.lwjgl.glfw.GLFW.*;
-import static org.lwjgl.system.MemoryStack.stackPush;
-import static org.lwjgl.system.MemoryUtil.NULL;
+import threeD_Test.GameThingy.Engine.graph.Render;
+import threeD_Test.GameThingy.Engine.scene.Scene;
 
 public class Engine {
 
-    // The window handle
-    private long window;
+    public static final int TARGET_UPS = 30;
+    private final IAppLogic appLogic;
+    private final Window window;
+    private Render render;
+    private boolean running;
+    private Scene scene;
+    private int targetFps;
+    private int targetUps;
 
-    public static void main(String[] args) {
-        new Engine().run();
-    }
-
-    private void init() {
-        // Setup an error callback. The default implementation
-        // will print the error message in System.err.
-        GLFWErrorCallback.createPrint(System.err).set();
-
-        // Initialize GLFW. Most GLFW functions will not work before doing this.
-        if (!glfwInit())
-            throw new IllegalStateException("Unable to initialize GLFW");
-
-        // Configure GLFW
-        glfwDefaultWindowHints(); // optional, the current window hints are already the default
-        glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE); // the window will stay hidden after creation
-        glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE); // the window will be resizable
-
-        // Create the window
-        window = glfwCreateWindow(800, 600, "Hello World!", NULL, NULL);
-        if (window == NULL)
-            throw new RuntimeException("Failed to create the GLFW window");
-
-        // Setup a key callback. It will be called every time a key is pressed, repeated or released.
-        glfwSetKeyCallback(window, (window, key, scancode, action, mods) -> {
-            if (key == GLFW_KEY_ESCAPE && action == GLFW_RELEASE)
-                glfwSetWindowShouldClose(window, true); // We will detect this in the rendering loop
+    public Engine(String windowTitle, Window.WindowOptions opts, IAppLogic appLogic) {
+        window = new Window(windowTitle, opts, () -> {
+            resize();
+            return null;
         });
-
-        // Get the thread stack and push a new frame
-        try (MemoryStack stack = stackPush()) {
-            IntBuffer pWidth = stack.mallocInt(1); // int*
-            IntBuffer pHeight = stack.mallocInt(1); // int*
-
-            // Get the window size passed to glfwCreateWindow
-            glfwGetWindowSize(window, pWidth, pHeight);
-
-            // Get the resolution of the primary monitor
-            GLFWVidMode vidmode = glfwGetVideoMode(glfwGetPrimaryMonitor());
-
-            // Center the window
-            glfwSetWindowPos(
-                    window,
-                    (vidmode.width() - pWidth.get(0)) / 2,
-                    (vidmode.height() - pHeight.get(0)) / 2
-            );
-        } // the stack frame is popped automatically
-
-        // Make the OpenGL context current
-        glfwMakeContextCurrent(window);
-        // Enable v-sync
-        glfwSwapInterval(1);
-
-        // Make the window visible
-        glfwShowWindow(window);
+        targetFps = opts.fps;
+        targetUps = opts.ups;
+        this.appLogic = appLogic;
+        render = new Render();
+        scene = new Scene();
+        appLogic.init(window, scene, render);
+        running = true;
     }
 
-    private void loop() {
-        // This line is critical for LWJGL's interoperation with GLFW's
-        // OpenGL context, or any context that is managed externally.
-        // LWJGL detects the context that is current in the current thread,
-        // creates the GLCapabilities instance and makes the OpenGL
-        // bindings available for use.
-        GL.createCapabilities();
+    private void cleanup() {
+        appLogic.cleanup();
+        render.cleanup();
+        scene.cleanup();
+        window.cleanup();
+    }
 
-        // Set the clear color
-        GL43.glClearColor(1.0f, 0.0f, 0.0f, 0.0f);
+    private void resize() {
+        // Nothing to be done yet
+    }
 
-        // Run the rendering loop until the user has attempted to close
-        // the window or has pressed the ESCAPE key.
-        while (!glfwWindowShouldClose(window)) {
-            GL43.glClear(GL43.GL_COLOR_BUFFER_BIT | GL43.GL_DEPTH_BUFFER_BIT); // clear the framebuffer
+    private void run() {
+        long initialTime = System.currentTimeMillis();
+        float timeU = 1000.0f / targetUps;
+        float timeR = targetFps > 0 ? 1000.0f / targetFps : 0;
+        float deltaUpdate = 0;
+        float deltaFps = 0;
 
-            glfwSwapBuffers(window); // swap the color buffers
+        long updateTime = initialTime;
+        while (running && !window.windowShouldClose()) {
+            window.pollEvents();
 
-            // Poll for window events. The key callback above will only be
-            // invoked during this call.
-            glfwPollEvents();
+            long now = System.currentTimeMillis();
+            deltaUpdate += (now - initialTime) / timeU;
+            deltaFps += (now - initialTime) / timeR;
+
+            if (targetFps <= 0 || deltaFps >= 1) {
+                appLogic.input(window, scene, now - initialTime);
+            }
+
+            if (deltaUpdate >= 1) {
+                long diffTimeMillis = now - updateTime;
+                appLogic.update(window, scene, diffTimeMillis);
+                updateTime = now;
+                deltaUpdate--;
+            }
+
+            if (targetFps <= 0 || deltaFps >= 1) {
+                render.render(window, scene);
+                deltaFps--;
+                window.update();
+            }
+            initialTime = now;
         }
+
+        cleanup();
     }
 
-    public void run() {
-        System.out.println("Hello LWJGL " + Version.getVersion() + "!");
+    public void start() {
+        running = true;
+        run();
+    }
 
-        init();
-        loop();
-
-        // Free the window callbacks and destroy the window
-        glfwFreeCallbacks(window);
-        glfwDestroyWindow(window);
-
-        // Terminate GLFW and free the error callback
-        glfwTerminate();
-        glfwSetErrorCallback(null).free();
+    public void stop() {
+        running = false;
     }
 
 }
