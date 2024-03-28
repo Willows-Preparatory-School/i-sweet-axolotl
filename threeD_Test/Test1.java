@@ -140,7 +140,6 @@ public class Test1 {
             // Render everything in under this line
             Test1Renderer.render();
             //End of render code.
-
             glfwSwapBuffers(window); // swap the color buffers
 
             // Poll for window events. The key callback above will only be

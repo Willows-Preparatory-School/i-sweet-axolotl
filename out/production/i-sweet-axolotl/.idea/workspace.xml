@@ -4,24 +4,56 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="212df244-dcba-49a3-bcd7-f2765170b137" name="Changes" comment="" />
+    <list default="true" id="212df244-dcba-49a3-bcd7-f2765170b137" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/threeD_Test/Test1Texture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/i-sweet-axolotl/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/i-sweet-axolotl/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/Test1Renderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/Test1Renderer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/threeD_Test/Test1Renderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/threeD_Test/Test1Renderer.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="2eI3p7VP4zaxrfyLGzR790D7ZPD" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Test1.executor": "Run",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/axolotl/IdeaProjects/i-sweet-axolotl/working_directory",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
   <component name="RunManager">
     <configuration name="Test1" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="threeD_Test.Test1" />
       <module name="i-sweet-axolotl" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/working_directory" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -31,10 +63,19 @@
     <attachedChunks>
       <set>
         <option value="jdk-21.0.1-openjdk-21.0.1-4caba194b151-e47b9c39" />
+        <option value="jdk-21.0.2-temurin-21.0.2-3183f394aec4-44d4b070" />
       </set>
     </attachedChunks>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="212df244-dcba-49a3-bcd7-f2765170b137" name="Changes" comment="" />
+      <created>1711578445812</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1711578445812</updated>
+    </task>
     <servers />
   </component>
 </project>
