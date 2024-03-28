@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="212df244-dcba-49a3-bcd7-f2765170b137" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/threeD_Test/Test1Texture.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/i-sweet-axolotl/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/i-sweet-axolotl/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/Test1Renderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/i-sweet-axolotl/threeD_Test/Test1Renderer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/threeD_Test/Test1Renderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/threeD_Test/Test1Renderer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/threeD_Test/Engine.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,27 +25,41 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2eI3p7VP4zaxrfyLGzR790D7ZPD" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Test1.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/axolotl/IdeaProjects/i-sweet-axolotl/working_directory",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Engine.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Test1.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/axolotl/IdeaProjects/i-sweet-axolotl/working_directory&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
-  <component name="RunManager">
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/working_directory/res" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Engine">
+    <configuration name="Engine" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="threeD_Test.Engine.Engine" />
+      <module name="i-sweet-axolotl" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/working_directory" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Test1" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="threeD_Test.Test1" />
       <module name="i-sweet-axolotl" />
@@ -58,10 +68,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Test1" />
+      <item itemvalue="Application.Engine" />
+    </list>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
+        <option value="jdk-17.0.10-temurin-17.0.10-f644763e9732-3893620f" />
         <option value="jdk-21.0.1-openjdk-21.0.1-4caba194b151-e47b9c39" />
         <option value="jdk-21.0.2-temurin-21.0.2-3183f394aec4-44d4b070" />
       </set>
