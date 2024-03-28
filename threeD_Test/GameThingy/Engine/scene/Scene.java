@@ -1,8 +1,10 @@
 package threeD_Test.GameThingy.Engine.scene;
 
+import threeD_Test.GameThingy.Engine.IGuiInstance;
 import threeD_Test.GameThingy.Engine.graph.Mesh;
 import threeD_Test.GameThingy.Engine.graph.Model;
 import threeD_Test.GameThingy.Engine.graph.TextureCache;
+import threeD_Test.GameThingy.Engine.scene.lights.SceneLights;
 
 import java.util.*;
 
@@ -11,7 +13,9 @@ public class Scene {
     private Map<String, Model> modelMap;
     private TextureCache textureCache;
     private Camera camera;
+    private IGuiInstance guiInstance;
     private Projection projection;
+    private SceneLights sceneLights;
 
     public Scene(int width, int height) {
         modelMap = new HashMap<>();
@@ -26,6 +30,14 @@ public class Scene {
 
     public TextureCache getTextureCache() {
         return textureCache;
+    }
+
+    public SceneLights getSceneLights() {
+        return sceneLights;
+    }
+
+    public IGuiInstance getGuiInstance() {
+        return guiInstance;
     }
 
     public void addEntity(Entity entity) {
@@ -51,6 +63,14 @@ public class Scene {
 
     public Projection getProjection() {
         return projection;
+    }
+
+    public void setGuiInstance(IGuiInstance guiInstance) {
+        this.guiInstance = guiInstance;
+    }
+
+    public void setSceneLights(SceneLights sceneLights) {
+        this.sceneLights = sceneLights;
     }
 
     public void resize(int width, int height) {
