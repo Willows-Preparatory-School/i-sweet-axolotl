@@ -95,7 +95,7 @@ public class Main implements IAppLogic {
                 scene.getTextureCache());
         scene.addModel(quadModel);
 
-        Model cubeModel = ModelLoader.loadModel("cube-model", "resources/models/cube/cube_old.obj",
+        Model cubeModel = ModelLoader.loadModel("cube-model", "resources/models/cube/cube.obj",
                 scene.getTextureCache());
         scene.addModel(cubeModel);
 
@@ -106,16 +106,16 @@ public class Main implements IAppLogic {
         cubeEntity = new Entity("cube-entity", cubeModel.getId());
         cubeEntity.setPosition(0, 0, -2);
         scene.addEntity(cubeEntity);
-
-        pointEntity = new Entity("pointEntity-entity", coneModel.getId());
-        pointEntity.setPosition(0, 0, -2);
-        scene.addEntity(pointEntity);
-        spotEntity = new Entity("spotEntity-entity", coneModel.getId());
-        spotEntity.setPosition(0, 0, -2);
-        scene.addEntity(spotEntity);
-        dirEntity = new Entity("dirEntity-entity", coneModel.getId());
-        dirEntity.setPosition(0, 0, -2);
-        scene.addEntity(dirEntity);
+//
+//        pointEntity = new Entity("pointEntity-entity", coneModel.getId());
+//        pointEntity.setPosition(0, 0, -2);
+//        scene.addEntity(pointEntity);
+//        spotEntity = new Entity("spotEntity-entity", coneModel.getId());
+//        spotEntity.setPosition(0, 0, -2);
+//        scene.addEntity(spotEntity);
+//        dirEntity = new Entity("dirEntity-entity", coneModel.getId());
+//        dirEntity.setPosition(0, 0, -2);
+//        scene.addEntity(dirEntity);
 
 
         int numRows = NUM_CHUNKS * 2 + 1;
@@ -133,15 +133,15 @@ public class Main implements IAppLogic {
         SceneLights sceneLights = new SceneLights();
         sceneLights.getAmbientLight().setIntensity(0.2f);
         scene.setSceneLights(sceneLights);
-        sceneLights.getPointLights().add(new PointLight(new Vector3f(1, 1, 1),
-                new Vector3f(0, 0, -1.4f), 1.0f));
-
-        Vector3f coneDir = new Vector3f(0, 0, -1);
-        sceneLights.getSpotLights().add(new SpotLight(new PointLight(new Vector3f(1, 1, 1),
-                new Vector3f(0, 0, -1.4f), 0.0f), coneDir, 140.0f));
-
-        lightControls = new LightControls(scene);
-        scene.setGuiInstance(lightControls);
+//        sceneLights.getPointLights().add(new PointLight(new Vector3f(1, 1, 1),
+//                new Vector3f(0, 0, -1.4f), 1.0f));
+//
+//        Vector3f coneDir = new Vector3f(0, 0, -1);
+//        sceneLights.getSpotLights().add(new SpotLight(new PointLight(new Vector3f(1, 1, 1),
+//                new Vector3f(0, 0, -1.4f), 0.0f), coneDir, 140.0f));
+//
+//        lightControls = new LightControls(scene);
+//        scene.setGuiInstance(lightControls);
 
         if (false){ // skybox toggle
             SkyBox skyBox = new SkyBox("resources/models/skybox/skybox.obj", scene.getTextureCache());
@@ -154,9 +154,36 @@ public class Main implements IAppLogic {
         scene.getCamera().moveUp(0.1f);
 
         // move model for easy viewing.
-        cubeEntity.setRotation(0, 1, 0, 80);
+        //cubeEntity.setRotation(0, 1, 0, 80);
         cubeEntity.setPosition(0, 0.0f, -0.7f);
         cubeEntity.updateModelMatrix(); // idk why we need this, but we do :3
+
+        String wallNoNormalsModelId = "quad-no-normals-model";
+        Model quadModelNoNormals = ModelLoader.loadModel(wallNoNormalsModelId, "resources/models/wall/wall_nonormals.obj",
+                scene.getTextureCache());
+        scene.addModel(quadModelNoNormals);
+
+        Entity wallLeftEntity = new Entity("wallLeftEntity", wallNoNormalsModelId);
+        wallLeftEntity.setPosition(-3f, 0, 0);
+        wallLeftEntity.setScale(2.0f);
+        wallLeftEntity.updateModelMatrix();
+        scene.addEntity(wallLeftEntity);
+
+        String wallModelId = "quad-model-normals";
+        Model quadModel2 = ModelLoader.loadModel(wallModelId, "resources/models/wall/wall.obj",
+                scene.getTextureCache());
+        scene.addModel(quadModel2);
+
+        Entity wallRightEntity = new Entity("wallRightEntity", wallModelId);
+        wallRightEntity.setPosition(3f, 0, 0);
+        wallRightEntity.setScale(2.0f);
+        wallRightEntity.updateModelMatrix();
+        scene.addEntity(wallRightEntity);
+
+        DirLight dirLight = sceneLights.getDirLight();
+        dirLight.setPosition(1, 1, 0);
+        dirLight.setIntensity(1.0f);
+        scene.setSceneLights(sceneLights);
     }
 
     public void input(Window window, Scene scene, long diffTimeMillis, boolean inputConsumed) {
@@ -201,19 +228,19 @@ public class Main implements IAppLogic {
         //cubeEntity.updateModelMatrix();
 
         //TODO: There are better ways to do this >w<
-        SceneLights sceneLights = scene.getSceneLights();
-        SpotLight spotLight = sceneLights.getSpotLights().get(0);
-        DirLight dirLight = sceneLights.getDirLight();
-        PointLight pointLight = sceneLights.getPointLights().get(0);
-        spotEntity.setPosition(spotLight.getPointLight().getPosition().x, spotLight.getPointLight().getPosition().y, spotLight.getPointLight().getPosition().z);
-        dirEntity.setPosition(dirLight.getDirection().x, dirLight.getDirection().y, dirLight.getDirection().z);
-        pointEntity.setPosition(pointLight.getPosition().x, pointLight.getPosition().y, pointLight.getPosition().z);
-        //spotEntity.setScale(0.2f);
-        //dirEntity.setScale(0.2f);
-        //pointEntity.setScale(0.2f);
-        //spotLight.getPointLight().getPosition()
-        spotEntity.updateModelMatrix();
-        dirEntity.updateModelMatrix();
-        pointEntity.updateModelMatrix();
+//        SceneLights sceneLights = scene.getSceneLights();
+//        SpotLight spotLight = sceneLights.getSpotLights().get(0);
+//        DirLight dirLight = sceneLights.getDirLight();
+//        PointLight pointLight = sceneLights.getPointLights().get(0);
+//        spotEntity.setPosition(spotLight.getPointLight().getPosition().x, spotLight.getPointLight().getPosition().y, spotLight.getPointLight().getPosition().z);
+//        dirEntity.setPosition(dirLight.getDirection().x, dirLight.getDirection().y, dirLight.getDirection().z);
+//        pointEntity.setPosition(pointLight.getPosition().x, pointLight.getPosition().y, pointLight.getPosition().z);
+//        //spotEntity.setScale(0.2f);
+//        //dirEntity.setScale(0.2f);
+//        //pointEntity.setScale(0.2f);
+//        //spotLight.getPointLight().getPosition()
+//        spotEntity.updateModelMatrix();
+//        dirEntity.updateModelMatrix();
+//        pointEntity.updateModelMatrix();
     }
 }

@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="212df244-dcba-49a3-bcd7-f2765170b137" name="Changes" comment="" />
+    <list default="true" id="212df244-dcba-49a3-bcd7-f2765170b137" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/threeD_Test/GameThingy/Game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/threeD_Test/GameThingy/Game/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,6 +55,7 @@
     <configuration name="Engine" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="threeD_Test.GameThingy.Game.Main" />
       <module name="i-sweet-axolotl" />
+      <option name="PROGRAM_PARAMETERS" value="-Xss1G" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/working_directory" />
       <method v="2">
         <option name="Make" enabled="true" />
