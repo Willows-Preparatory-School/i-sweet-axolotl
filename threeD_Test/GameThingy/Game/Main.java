@@ -95,17 +95,6 @@ public class Main implements IAppLogic {
                 scene.getTextureCache());
         scene.addModel(quadModel);
 
-        int numRows = NUM_CHUNKS * 2 + 1;
-        int numCols = numRows;
-        terrainEntities = new Entity[numRows][numCols];
-        for (int j = 0; j < numRows; j++) {
-            for (int i = 0; i < numCols; i++) {
-                Entity entity = new Entity("TERRAIN_" + j + "_" + i, quadModelId);
-                terrainEntities[j][i] = entity;
-                scene.addEntity(entity);
-            }
-        }
-
         Model cubeModel = ModelLoader.loadModel("cube-model", "resources/models/computer/computer.obj",
                 scene.getTextureCache());
         scene.addModel(cubeModel);
@@ -128,28 +117,45 @@ public class Main implements IAppLogic {
         dirEntity.setPosition(0, 0, -2);
         scene.addEntity(dirEntity);
 
+
+        int numRows = NUM_CHUNKS * 2 + 1;
+        int numCols = numRows;
+        terrainEntities = new Entity[numRows][numCols];
+        for (int j = 0; j < numRows; j++) {
+            for (int i = 0; i < numCols; i++) {
+                Entity entity = new Entity("TERRAIN_" + j + "_" + i, quadModelId);
+                terrainEntities[j][i] = entity;
+                scene.addEntity(entity);
+            }
+        }
+
+
         SceneLights sceneLights = new SceneLights();
         sceneLights.getAmbientLight().setIntensity(0.2f);
         scene.setSceneLights(sceneLights);
-//        sceneLights.getPointLights().add(new PointLight(new Vector3f(1, 1, 1),
-//                new Vector3f(0, 0, -1.4f), 1.0f));
-//
-//        Vector3f coneDir = new Vector3f(0, 0, -1);
-//        sceneLights.getSpotLights().add(new SpotLight(new PointLight(new Vector3f(1, 1, 1),
-//                new Vector3f(0, 0, -1.4f), 0.0f), coneDir, 140.0f));
-//
-//        lightControls = new LightControls(scene);
-//        scene.setGuiInstance(lightControls);
+        sceneLights.getPointLights().add(new PointLight(new Vector3f(1, 1, 1),
+                new Vector3f(0, 0, -1.4f), 1.0f));
 
-        SkyBox skyBox = new SkyBox("resources/models/skybox/skybox.obj", scene.getTextureCache());
-        skyBox.getSkyBoxEntity().setScale(50);
-        scene.setSkyBox(skyBox);
+        Vector3f coneDir = new Vector3f(0, 0, -1);
+        sceneLights.getSpotLights().add(new SpotLight(new PointLight(new Vector3f(1, 1, 1),
+                new Vector3f(0, 0, -1.4f), 0.0f), coneDir, 140.0f));
+
+        lightControls = new LightControls(scene);
+        scene.setGuiInstance(lightControls);
+
+        if (false){ // skybox toggle
+            SkyBox skyBox = new SkyBox("resources/models/skybox/skybox.obj", scene.getTextureCache());
+            skyBox.getSkyBoxEntity().setScale(50);
+            scene.setSkyBox(skyBox);
+        }
+
+        //scene.setFog(new Fog(true, new Vector3f(0.5f, 0.5f, 0.5f), 0.95f)); // make sure fog is the same color as clear color, or else without a skybox it will look weird.
 
         scene.getCamera().moveUp(0.1f);
 
         // move model for easy viewing.
         cubeEntity.setRotation(0, 1, 0, 80);
-        cubeEntity.setPosition(0, -0.4f, -1.1f);
+        cubeEntity.setPosition(0, 0.0f, -0.7f);
         cubeEntity.updateModelMatrix(); // idk why we need this, but we do :3
     }
 
@@ -195,19 +201,19 @@ public class Main implements IAppLogic {
         //cubeEntity.updateModelMatrix();
 
         //TODO: There are better ways to do this >w<
-//        SceneLights sceneLights = scene.getSceneLights();
-//        SpotLight spotLight = sceneLights.getSpotLights().get(0);
-//        DirLight dirLight = sceneLights.getDirLight();
-//        PointLight pointLight = sceneLights.getPointLights().get(0);
-//        spotEntity.setPosition(spotLight.getPointLight().getPosition().x, spotLight.getPointLight().getPosition().y, spotLight.getPointLight().getPosition().z);
-//        dirEntity.setPosition(dirLight.getDirection().x, dirLight.getDirection().y, dirLight.getDirection().z);
-//        pointEntity.setPosition(pointLight.getPosition().x, pointLight.getPosition().y, pointLight.getPosition().z);
-//        //spotEntity.setScale(0.2f);
-//        //dirEntity.setScale(0.2f);
-//        //pointEntity.setScale(0.2f);
-//        //spotLight.getPointLight().getPosition()
-//        spotEntity.updateModelMatrix();
-//        dirEntity.updateModelMatrix();
-//        pointEntity.updateModelMatrix();
+        SceneLights sceneLights = scene.getSceneLights();
+        SpotLight spotLight = sceneLights.getSpotLights().get(0);
+        DirLight dirLight = sceneLights.getDirLight();
+        PointLight pointLight = sceneLights.getPointLights().get(0);
+        spotEntity.setPosition(spotLight.getPointLight().getPosition().x, spotLight.getPointLight().getPosition().y, spotLight.getPointLight().getPosition().z);
+        dirEntity.setPosition(dirLight.getDirection().x, dirLight.getDirection().y, dirLight.getDirection().z);
+        pointEntity.setPosition(pointLight.getPosition().x, pointLight.getPosition().y, pointLight.getPosition().z);
+        //spotEntity.setScale(0.2f);
+        //dirEntity.setScale(0.2f);
+        //pointEntity.setScale(0.2f);
+        //spotLight.getPointLight().getPosition()
+        spotEntity.updateModelMatrix();
+        dirEntity.updateModelMatrix();
+        pointEntity.updateModelMatrix();
     }
 }

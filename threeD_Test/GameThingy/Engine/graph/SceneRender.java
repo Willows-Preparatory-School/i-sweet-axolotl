@@ -3,6 +3,7 @@ package threeD_Test.GameThingy.Engine.graph;
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
 import threeD_Test.GameThingy.Engine.scene.Entity;
+import threeD_Test.GameThingy.Engine.scene.Fog;
 import threeD_Test.GameThingy.Engine.scene.Scene;
 
 import java.util.*;
@@ -67,14 +68,26 @@ public class SceneRender {
         uniformsMap.createUniform("dirLight.color");
         uniformsMap.createUniform("dirLight.direction");
         uniformsMap.createUniform("dirLight.intensity");
+
+        uniformsMap.createUniform("fog.activeFog");
+        uniformsMap.createUniform("fog.color");
+        uniformsMap.createUniform("fog.density");
     }
 
     public void render(Scene scene) {
+        glEnable(GL_BLEND);
+        glBlendEquation(GL_FUNC_ADD);
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
         shaderProgram.bind();
 
         uniformsMap.setUniform("projectionMatrix", scene.getProjection().getProjMatrix());
         uniformsMap.setUniform("txtSampler", 0);
         updateLights(scene);
+
+        Fog fog = scene.getFog();
+        uniformsMap.setUniform("fog.activeFog", fog.isActive() ? 1 : 0);
+        uniformsMap.setUniform("fog.color", fog.getColor());
+        uniformsMap.setUniform("fog.density", fog.getDensity());
 
         Collection<Model> models = scene.getModelMap().values();
         TextureCache textureCache = scene.getTextureCache();
@@ -106,6 +119,7 @@ public class SceneRender {
         glBindVertexArray(0);
 
         shaderProgram.unbind();
+        glDisable(GL_BLEND);
     }
 
     private void updateLights(Scene scene) {
