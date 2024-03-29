@@ -13,6 +13,7 @@ public class Material {
     private Vector4f diffuseColor;
     private List<Mesh> meshList;
     private String texturePath;
+    private String normalMapPath;
 
     public Material() {
         diffuseColor = DEFAULT_COLOR;
@@ -48,6 +49,10 @@ public class Material {
         return specularColor;
     }
 
+    public String getNormalMapPath() {
+        return normalMapPath;
+    }
+
     public void setTexturePath(String texturePath) {
         this.texturePath = texturePath;
     }
@@ -66,5 +71,9 @@ public class Material {
 
     public void setSpecularColor(Vector4f specularColor) {
         this.specularColor = specularColor;
+    }
+
+    public void setNormalMapPath(String normalMapPath) {
+        this.normalMapPath = normalMapPath;
     }
 }

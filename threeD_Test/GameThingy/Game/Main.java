@@ -95,7 +95,7 @@ public class Main implements IAppLogic {
                 scene.getTextureCache());
         scene.addModel(quadModel);
 
-        Model cubeModel = ModelLoader.loadModel("cube-model", "resources/models/computer/computer.obj",
+        Model cubeModel = ModelLoader.loadModel("cube-model", "resources/models/cube/cube_old.obj",
                 scene.getTextureCache());
         scene.addModel(cubeModel);
 
